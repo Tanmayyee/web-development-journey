@@ -1,0 +1,49 @@
+div
+{
+    background-color: green;
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+#middle
+{
+    background-color: red;
+}
+
+#static #middle
+{
+    position: static; /* default value, the element is positioned according to the normal flow of the document */
+    top: 100px; /* has no effect */
+}
+
+#relative #middle 
+{
+    position: relative; /* the element is positioned relative to its normal position */
+    top: 100px; /* moves the element down by 100px from its normal position */
+}
+
+#absolute #middle
+{
+    position: absolute; /* the element is positioned relative to its nearest positioned ancestor (if any), otherwise relative to the initial containing block */
+    top: 20px; /* moves the element down by 20px from the top of the nearest positioned ancestor or the initial containing block */
+}
+
+#absolute2 
+{
+    position: relative; /* this will make ancestor positioned around element */
+}
+
+#absolute2 #middle
+{
+    position: absolute; /* the element is positioned relative to its nearest positioned ancestor (if any), otherwise relative to the initial containing block */
+    top: 20px; /* moves the element down by 100px from the top of the nearest positioned ancestor or the initial containing block */
+    left:10px;
+}
+
+#fixed #middle  /* always stays in the same place even if the page is scrolled */
+{
+    position: fixed; /* the element is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled */
+    top: 20px; /* moves the element down by 20px from the top of the viewport */
+    left: 500px;;
+}

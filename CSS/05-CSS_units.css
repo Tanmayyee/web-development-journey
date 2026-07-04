@@ -1,0 +1,44 @@
+section
+{
+    width:500px;
+    height: 500px;
+    background-color:aquamarine;
+}
+div
+{
+    width:50%;   /* 50% of the parent element which is section in this case, so 250px ,, as percent is realative in case of width and height*/
+    height: 50%;
+    background-color: bisque;
+}
+h1
+{
+    font-size: 40px;
+    border:5px solid black;
+    line-height: 200%; /* 50% of the font size not realated to parent , so 80px, as percent is realative in case of line-height */;
+}
+article
+{
+    font-size: 20px;
+}
+h2
+{
+    font-size: 2em; /* 2 times the font size of the parent element which is article in this case, so 40px, as em is realative to parent element */
+}
+p
+{
+    font-size: 0.5em; /* 0.5 times the font size of the parent element which is article in this case, so 10px, as em is realative to parent element */
+}
+button
+{
+    font-size: 1em; /* works or adjust relativily according to the parent element font size */
+    border-radius: 0.5em; 
+    margin: 0.5em;  
+    background-color: lightcoral;
+}
+ul
+{
+    /* font-size: 1.5em;    --- invalid for nested lists because em is relative to parent so "hi" will be 1.5 time of hello and hello will be 1.5 time of heyooo */
+    
+    font-size:1.5rem; /* 3 time the font size of root html element , which is usually 16px, so 48px, as rem is realative to root element */
+}
+  /* root html element is the <html> element and default font size is 16px added by the browser , and doctype */

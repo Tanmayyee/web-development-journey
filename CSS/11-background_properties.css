@@ -1,0 +1,46 @@
+section{
+    height: 600px;
+    width: 50%;
+    background-color: lightblue;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+section h1
+{
+    text-align: center;
+}
+section:nth-of-type(1)
+{
+    background: url(https://preview.redd.it/quick-practice-v0-5phs7t2l825h1.jpeg?auto=webp&s=1eec007106343db5c393259cfbe0a8ae0dd7c765);
+    background-position: top;
+    background-size: cover;
+
+}
+section:nth-of-type(2)
+{
+    background: url(https://preview.redd.it/my-current-painting-v0-8c4f6uhpot0g1.jpeg?width=1080&crop=smart&auto=webp&s=70c6b5f492f0f75b381cc223c117cbddf8e6a7bd);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+section:nth-of-type(3)
+{
+    background: url(https://preview.redd.it/quick-practice-v0-5phs7t2l825h1.jpeg?auto=webp&s=1eec007106343db5c393259cfbe0a8ae0dd7c765);
+    background-position: center;
+    background-size: 220px 220px;  /* width and height */
+    background-repeat: repeat-x;
+    
+}
+section:nth-of-type(4)
+{
+    background: url(https://preview.redd.it/my-current-painting-v0-8c4f6uhpot0g1.jpeg?width=1080&crop=smart&auto=webp&s=70c6b5f492f0f75b381cc223c117cbddf8e6a7bd);
+    background-position: center;
+    background-size: 15.2em;  /* relative to font size */  /* this is width and height become 'auto' */
+    background-repeat: repeat-x;
+    
+}
+section:nth-of-type(5)
+{
+    background: center/20% no-repeat  blue url(https://preview.redd.it/quick-practice-v0-5phs7t2l825h1.jpeg?auto=webp&s=1eec007106343db5c393259cfbe0a8ae0dd7c765);
+    
+}

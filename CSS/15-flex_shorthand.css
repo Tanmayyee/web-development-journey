@@ -1,0 +1,23 @@
+main
+{
+    width: 80%;
+    height:400px;
+    margin: 0 auto;
+    border: 2px solid black;
+    display:flex;
+
+}
+
+.sidebar
+{
+    background-color: burlywood;
+    flex: 1 2 200px; /* flex-grow , flex-shrink , flex-basis (initial size of the element)  */
+}
+
+.content
+{
+    background-color: chocolate;
+    flex: 1 1 400px; /* flex-grow is used to specify how much a flex item should grow relative to the other items in the flex container when there is extra space available , it can be set to a specific value (like pixels or percentage) or to 'auto' (which means the size will be based on the content of the item)
+                        flex-shrink is used to specify how much a flex item should shrink relative to the other items in the flex container when there is not enough space available , it can be set to a specific value (like pixels or percentage) or to 'auto' (which means the size will be based on the content of the item)
+                        flex-basis is used to specify the initial size of the flex item before any available space is distributed */
+}

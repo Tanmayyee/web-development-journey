@@ -1,0 +1,22 @@
+h1{
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(255,100,165);
+    text-decoration: double underline purple;
+    font-weight: 700; 
+    letter-spacing: 3px;  
+    font-size: 50px;
+    font-family: fantasy,arial,sans-serif; /* if fantasy is not available, use arial, if arial is not available, use sans-serif */
+
+}
+
+a{
+    text-decoration: none;
+}
+p{
+    line-height: 2;
+    
+}
+body{
+    background-color: #FFE6EA;
+}

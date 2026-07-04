@@ -1,0 +1,56 @@
+h1
+{
+    text-align: center;
+    color: red;
+    font-size: 6em;
+}
+nav
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    font-size: 1.5em;
+}
+ul,li 
+{
+    margin: 0;
+    padding: 0;
+    display: inline;
+   
+}
+ul
+{
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 50%;
+    flex: 1;  /* here flex:1 is used to distribute the available space equally among the list items and is it different from justify content because justify content aligns items along the main axis while flex aligns items along the flex direction */
+}
+
+@media (orientation: portrait)
+{
+    body 
+    {
+        background-color: burlywood;
+    }
+}
+
+@media (max-width:629px)  /* max width se selected pixel se kam jayenge to chnage hoga and min widht se selected pixels se jyada jane pr */
+{
+    h1 
+    {
+        color: blue;
+        font-size: 3em;
+    }
+
+    nav 
+    {
+        flex-direction: column;
+        align-items: center;  /*align item use hoga because justify content main axis ke liye use hota he aur align cross axis ke liye*/
+    }
+    ul,li 
+    {
+        flex-direction:column;
+        align-items: center;
+    }
+}

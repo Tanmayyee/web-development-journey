@@ -1,0 +1,26 @@
+body
+{
+    margin: 0px;;
+}
+img
+{
+    width: 750px;
+    height: 350px;
+}
+.d1
+{
+    background-color: turquoise;
+    border: 2px solid black;
+    height: 200px;
+    width: 200px;
+    margin: 3px;
+
+    display: inline-block; /* make the divs sit next to each other, default is block which makes them stack on top of each other */
+}
+
+
+/* three types of display = inline, block, inline-block
+  # inline = only takes up as much width as necessary, can sit next to each other, cannot set width and height
+   # block = takes up the full width available, always starts on a new line, can set width and height
+    # inline-block = behaves like inline but can set width and height, can sit next to each other
+ */

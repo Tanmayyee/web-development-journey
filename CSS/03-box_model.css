@@ -1,0 +1,64 @@
+body
+{
+    margin: 0px; /* default margin is 8px on document, set to 0 to remove it */
+}
+.p
+{
+    width: 200px;
+    height: 200px;
+
+}
+#p1
+{
+    background-color: rosybrown;
+    border-width:5px;
+    border-style: solid;
+    border-color: black;
+    box-sizing: border-box; /* include border and padding in the total width and height , border to border */
+
+    border-radius: 15px;
+    margin: 3px;
+
+}
+#p2
+{
+    background-color: lightblue;
+    border-width:5px;
+    border-left-width: 12px;
+    border-style: dashed;
+    border-color: black;
+    margin: 3px;
+
+}
+
+.card
+{
+    width: 210px;
+    border:1px solid grey;  /* width style color*/
+    border-radius: 5px;
+    text-align: center;
+    
+}
+img
+{
+    width: 200px;
+    border:5px solid rgb(236,183,191);
+    border-radius:50%;
+}
+
+#b1
+{
+    margin-top: 180px;
+    padding: 20px; /* all side padding */
+}
+
+#b2
+{
+    margin-top: 20px;
+    padding: 20px 40px; /* vertical horizontal */
+}
+#b3
+{
+    margin-top: 20px;
+    padding: 20px 40px 10px 10px; /* top right bottom left */
+}

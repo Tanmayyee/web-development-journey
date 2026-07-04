@@ -1,0 +1,22 @@
+section
+{
+    width: 700px;
+    height: 200px;
+    background-color: magenta;
+}
+
+#RGBA
+{
+    width: 50%;
+    height: 50%;
+    background-color: rgba(46, 40, 220, 0.3);  /* rgba stands for red, green, blue and alpha (opacity) */
+}  
+/* alpha only lightens the background color , not text */
+
+#Opacity
+{
+    width: 50%;
+    height: 50%;
+    background-color: cyan;
+    opacity: 0.2; /* opacity affects the whole element including text and background */
+}

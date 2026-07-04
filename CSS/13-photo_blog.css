@@ -1,0 +1,19 @@
+img
+{
+    width:30%;  /* ek line me 3 images chaiye to 30 30 30 width dedi to 100 me se 90 percent sapce images use kr lengi
+                    aur baki 10 percent margin me use kr lenge unke beech 
+                    ,, % reponsive rhta he because ye body ka % he to body ke acc change hota rhta */
+
+    margin: calc(10%/6);                /* 6 kyu ki 6 side margin aayega left and right dono (3 img ke liye)*/
+}
+
+nav
+{
+    font-family: "Archivo Black", sans-serif;
+    font-size: 1.3em;
+    padding: 0.8em 0;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e7e6e6;
+    width: 30%;
+    margin-left: calc(10%/6);
+}

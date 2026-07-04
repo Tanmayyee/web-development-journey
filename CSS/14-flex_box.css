@@ -1,0 +1,87 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1
+{
+    text-align: center;
+    
+}
+
+#container
+{
+    background-color: darkslateblue;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+    border: 5px solid rgb(0, 0, 0);
+
+    display: flex;   /* two axis - main axis(justify-content) and cross axis(align-items) */
+
+    flex-direction: row-reverse;   /* default is 'row'  and other are 'column' , 'column-reverse' */
+
+    justify-content: space-around; /* default is 'flex-start'(left to right) and other are 'flex-end'(right to left) 
+                                   , 'center' , 'space-between'(only in between not in , 'space-evenly' */
+
+    flex-wrap: wrap; /* default is 'nowrap' and other are 'wrap' and 'wrap-reverse' ,, this feature allows flex items to wrap to the next line even if they overflow */   
+
+    align-items: flex-start;  /* align items along the cross axis ,, default is 'stretch' and 
+                           others are 'flex-start', 'flex-end', 'center', 
+                           
+                           ,'baseline' (according to the text - text ko straight line me rakhta he) */  
+                           
+    align-content: center; /* align content along the cross axis when there are multiple lines of flex items ,, default is 'stretch' and other are 'flex-start', 'flex-end', 'center', 'space-between', 'space-around'  */
+
+    /* align-self:flex-start    == we can use align self to override the align-items property for individual flex items , using div:nth-of-type(n){align-self:width: ;} */
+    
+}
+
+#container div
+{
+    height: 100px;
+    width: 300px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+
+}
+
+#container2
+{
+    background-color:rgb(231, 247, 59);
+    width: 90%;
+    height: 500px;
+    margin: 10px 70px;
+    border: 5px solid rgb(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+#container2 div
+{
+    height: 100px;
+    width: 100px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+
+    flex-basis: 250px; /* flex-basis is used to specify the initial size of a flex item before it is placed in the flex container , it can be set to a specific value (like pixels or percentage) or to 'auto' (which means the size will be based on the content of the item) */
+
+}
+
+section:nth-of-type(2) div:nth-of-type(1)
+{
+    align-self: flex-start;
+}
+section:nth-of-type(2) div:nth-of-type(2)
+{
+    flex-grow: 1; /* flex-grow is used to specify how much a flex item should grow relative to the other items in the flex container when there is extra space available , it can be set to a specific value (like pixels or percentage) or to 'auto' (which means the size will be based on the content of the item) */
+    flex-shrink: 3;
+}
+section:nth-of-type(2) div:nth-of-type(3)
+{
+    flex-shrink: 0; /* flex-shrink is used to specify how much a flex item should shrink relative to the other items in the flex container when there is not enough space available , it can be set to a specific value (like pixels or percentage) or to 'auto' (which means the size will be based on the content of the item) */
+}

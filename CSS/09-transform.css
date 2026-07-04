@@ -1,0 +1,79 @@
+h2
+{
+    text-align: center;
+    background-color: lightcoral;
+    border: 5px solid black;
+    padding:0.7em;
+    width:300px;
+    color: rgb(255, 255, 255);
+    margin:20px auto;
+    font-family: courier new;
+    font-weight: lighter;
+
+}
+
+h2:nth-of-type(2)
+{
+    background-color: rgb(146, 29, 29);
+}
+h2:nth-of-type(3)
+{
+    background-color: rgb(29, 146, 29);
+}
+h2:nth-of-type(4)
+{
+    background-color: rgb(29, 29, 146);
+}
+
+/* ----------------- now transform ---------------- */
+
+section:first-of-type h2:nth-of-type(1)
+{
+    /* "" transform-origin: bottom right; ""  ,,, by default transform origin is center */
+    
+    transform: rotate(20deg);  /* rotates by center */
+
+    /* rotatex , rotatey , rotatez  , rotate */
+}
+
+section:first-of-type h2:nth-of-type(2)
+{
+    transform: scale(0.5); /* scale(0.5) means 50% smaller than original size */
+
+    /* scaleX , scaleY , scaleZ  , scale */
+    /* scale(0.5 , 1 ) width and height */
+}
+
+section:first-of-type h2:nth-of-type(3)
+{
+    transform: translateX(100px); /* move horizontally to the right */
+
+    /* translateX translateY , translateZ  , translate */
+}
+
+section:first-of-type h2:nth-of-type(4)
+{
+    transform: skew(20deg); 
+
+    /* skewX , skewY  , skew */
+}
+
+section:last-of-type h2:nth-of-type(1)
+{
+    transform: rotate(20deg) scale(0.5) translateX(100px) skew(50deg); 
+}
+
+section:last-of-type h2:nth-of-type(2)
+{
+    transform:scaley(1.5) translate(-500px) rotate(-20deg);
+}
+
+section:last-of-type h2:nth-of-type(3)
+{
+    transform: translate(100px , 50px) rotate(20deg) scale(1.5);
+}
+
+section:last-of-type h2:nth-of-type(4)
+{
+    transform: skew(20deg) translateX(100px) scale(0.5);
+}

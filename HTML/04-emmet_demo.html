@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Emmet demo</title>
+</head>
+
+<body>
+
+    <ul> <!-- ul>li*5 --> <!-- You can use > (child) operator to nest elements inside each other: -->
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <!-- ------------------------------------------------  -->
+
+    <nav> <!-- nav>ul>li*5>a -->
+        <ul>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </nav>
+
+    <!-- ------------------------------------------------  -->
+
+    <nav> <!-- nav>ol>li*4>a[href=$]   , $ is used to show numbering -->
+        <ol>
+            <li><a href="1"></a></li>
+            <li><a href="2"></a></li>
+            <li><a href="3"></a></li>
+            <li><a href="4"></a></li>
+        </ol>
+    </nav>
+
+    <!-- ------------------------------------------------  -->
+
+    <nav> <!-- nav>ol>li*5>a[href=www.$.com]{hello click me} , {} is used to add text between a element -->
+        <ol>
+            <li><a href="www.1.com">hello click me</a></li>
+            <li><a href="www.2.com">hello click me</a></li>
+            <li><a href="www.3.com">hello click me</a></li>
+            <li><a href="www.4.com">hello click me</a></li>
+            <li><a href="www.5.com">hello click me</a></li>
+        </ol>
+    </nav>
+
+    <!-- ------------------------------------------------  -->
+
+    <nav></nav> <!-- nav+ul+p -->
+    <!--  Use + (sibling) operator to place elements near each other, on the same level:-->
+    <ul></ul>
+    <p></p>
+
+
+</body>
+
+</html>

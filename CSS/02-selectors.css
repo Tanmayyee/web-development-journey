@@ -1,0 +1,311 @@
+/* 
+     * {
+       background-color: aqua;
+       } 
+        * is universal selector  
+  
+*/     
+
+/* element selector = */
+body
+{
+    background-color:#ede0d4;
+}
+button
+{
+    font-size: 15px;
+    background-color: #656d4a;
+    color: white;
+}
+span
+{
+    color: #c77dff;
+}
+a
+{
+    text-decoration: none;
+    font-size: 17px;
+}
+h1,h2
+{
+    color: #7f5539;
+}
+
+/*  ID selector */
+
+#signup
+{
+    background-color: #9d0208;
+    color: white;
+}
+
+/*  class selector  */
+.tag
+{
+    background-color: red;
+    color: white;
+    font-size:20px;
+}  
+
+/* adjacent selector = select only the element that is immediately preceded by the first element */
+input + button
+{
+    background-color: pink;
+    color: white;
+    
+}
+/* direct child selector = select only the direct child elements */
+footer > p
+{
+    color: #020f9d;
+}
+
+/* attribute selector  */
+input[type="password"]
+{
+    color: red;
+    background-color: green;
+    
+}
+
+
+section[class="lol"]
+{
+    background-color:#9d0208;
+}
+
+/*
+ another way to do section[class="lol"] ==
+
+ .lol{}
+
+ or
+
+ section.lol{}
+ 
+*/
+
+/* ================================= multiple methods to do css ====================================== */
+/* =================================================================================================== */
+
+/* -------------------------------1st method -------------------------------  */
+
+/* 
+
+a
+{
+    color: #c77dff;
+}                          this will change all "a" elements colors in our document
+    
+*/  
+
+/*-------------------------------- 2nd method ------------------------------- */
+
+/* 
+
+.post a 
+{
+    color:#656d4a;
+}                            this will only change a inside class "post"  ,, so this method use class decendent 
+    
+*/
+
+/*-------------------------------- 3rd method ------------------------------- */
+
+/* 
+
+span a 
+{
+    color: #9d0208;
+}                          this will only change "a" which are inside " span " 
+    
+*/
+
+/* ---------------------- END ---------------------------------------------- */
+
+footer a
+{
+    color: #b5b023;
+}
+
+
+/* ----------------------------------------- PSEUDO CLASSES ------------------------------------- */
+
+/* ----- HOVER ----- */
+
+button:hover                       /* this will not affect signup button due to ""specificity "" in css
+                                     , " .post button " is more specific than just " button " 
+                                      ,  order = ID > CLASS > ELEMENT   
+                                      ,, important to calculate specificity ==
+    ( !important {not recommended } > Inline Style {not recommended } > ID__ >CLASS/attribute/pseudo-class__ >ELEMENT/pseudo-element__ )
+                                      ,, if 1 id present then  1 0 0  , 100 times more specific 
+                                      ,, if 2 classes present then  0 2 0  , 20 times more specific 
+                                      ,, eg); button:hover = 011 ( 1 pseudo-class=hover , 1 element =button)
+                                      
+                                      one last thing - if specificity is same , then the one that comes later in the CSS will be applied ( cascade)*/ 
+{
+    background-color: aliceblue;
+    color: black;
+}
+
+#signup:hover
+{
+    background-color: antiquewhite;
+    color:black;
+}
+
+.post button:hover
+{
+    background-color: #b5b023;
+    color: white;
+}
+
+a:hover
+{
+    text-decoration: wavy underline;
+}
+
+
+/* ----- ACTIVE ----- */
+
+button:active
+{
+    background-color: #fc0000;
+    color: white;
+}
+
+.post button:active
+{
+    background-color: #fc0000;
+    color: white;
+}
+
+/* ----- CHECKED ----- */
+
+input[type="radio"]:checked     /* this can also use for type=[checkbox] */
+{
+    box-shadow: 0 0 0 3px #9d0208;
+    
+}
+
+/* ----- nth type ----- */
+
+section:nth-child(even)
+{
+    background-color: rgb(144, 144, 144);
+    color: white;
+}
+section:nth-of-type(2n)
+{
+    background-color: #f673cc;
+    color: white;
+} 
+
+/* ----------------------------------------- PSEUDO ELEMENTS ------------------------------------- */
+
+/* ----- FIRST LETTER ----- */
+
+h2::first-letter
+{
+    font-size: 30px;
+    color: #e3ff29;
+}
+
+/* ----- FIRST LINE ----- */
+section+p::first-line             /* this section + p will only select p which comes just after section 0r 2nd method he ki "p" me koi class dedo */
+{
+    font-size: 20px;
+    color: #ff2969;
+}
+
+/* selection */
+
+::selection
+{
+    background-color: #9d0208;
+    color: white;
+}
+
+section+p::selection
+{
+    background-color: #9d8102;
+    color: white;
+}
+
+/* after  */
+
+.after::after
+{
+    content: "this text is added by css using after pseudo element";  /* content is used to insert text */
+    color: #f6f6f6;
+    background-color: black;
+    border: white dotted 2px;
+}
+
+/* before */
+.before::before
+{
+    content: "this text is added by css using before pseudo element";  /* content is used to insert text */
+    color: #f6f6f6;
+    background-color: rgb(255, 5, 5);
+    border: rgb(0, 0, 0) dotted 2px;
+}
+
+/* marker */
+
+li::marker
+{
+   content: ">>";
+    color: #bd0107;
+    font-weight: 700;
+} 
+
+
+/* ===================================== before + after + marker ========================================== */
+
+.new 
+{
+    font-size: 1.5rem;
+  font-family: "Helvetica", "Arial", sans-serif;
+  
+
+} 
+
+.new::after,.new::before
+{
+    display:list-item;       /* display defines how an element behaves and appears in the page layout 
+                                 eg: list-item , none , block , inline , grid , flex , inline-block etc..*/  
+    color:rgb(252, 25, 161);
+    font-weight: 700;                             
+}
+
+.new::before
+{
+    content:"Start";
+
+}
+
+.new::after
+{
+    content:"End";
+}
+
+.new::marker
+{
+    content: ">>";
+    color: #bd0107;
+    font-weight: 700;
+}
+
+.new::before::marker
+{
+    content: "++";
+    color: #bd0107;
+    font-weight: 700;
+}
+.new::after::marker
+{
+    content: "++";
+    color: #bd0107;
+    font-weight: 700;
+}

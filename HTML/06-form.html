@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Demo</title>
+</head>
+
+<body>
+
+    <!-- when you submit a form, a http request will be sent 
+     and we control where those request goes to using the "action" attribute  -->
+
+    <h1>Form demo</h1>
+
+    <form action="/tacos">
+        <p>
+            <label for="username"> Enter your username</label>
+            <input type="text" placeholder="username" id="username" name="AA"> <!-- the name attribute is used to identify the input field when the form is submitted 
+                                         , like after submission the url will show http://127.0.0.1:5500/tacos?AA=tanmayyyee-->
+        </p>
+
+        <p>
+            <label for="password"> Enter your password</label>
+            <input type="password" placeholder="enter your password" id="password" name="password">
+        </p>
+
+        <p>
+            <label for="date">Enter date of birth</label>
+            <input type="date" id="date" name="D.O.B" >
+        </p>
+
+        <p>
+            <label for="color">Enter your fav color</label>
+            <input type="color" id="color" name="favcolor">
+        </p>
+
+        <p>
+            <label for="age">Enter your age</label>
+            <input type="number" placeholder="enter your age" id="age" name="age" min="1" max="1000">
+        </p>
+
+        <p>
+            <label for="apple">I prefer apple in breakfast</label>
+            <input type="checkbox" name="apple" id="apple" >
+            
+        </p>
+        <p>
+            <label for="pasta">I prefer pasta in breakfast</label>
+            <input type="checkbox"  name="pasta" id="pasta">
+        </p>
+
+        <button>submit</button>  <!-- by default submits if in a form-->
+
+        <button>do not submit</button> <!-- it will also submit -->  <!-- default is type="submit"-->
+
+        <button type="button">click me</button>  <!-- it will not submit a form , 
+        it will behave just like a button because of type="button" attribute-->
+
+        <input type="submit"> <!-- another way to add submit button , ( but not a preferable way) -->
+
+        <input type="submit" value="click here">  <!-- we can change the name of submit button in input method using value attribute -->
+
+    </form>
+
+    <!-- http://127.0.0.1:5500/tacos?AA=tanmayyyee&password=tasadadada&D.O.B=2026-05-14&favcolor=%23e30202&age=22&apple=on&pasta=on
+     
+    after submition of form -->
+
+    <hr>
+
+    <button>outside the from</button>  <!-- by default it will do nothing if button is outside the form-->
+
+    <hr>
+
+    <h2>hijacking  searches</h2>
+
+
+
+    <h3>google search</h3>
+    <form action="https://www.google.com/search?">
+    <input type="text" name="q" >
+    <button>search google</button>
+    </form>
+     
+    <h3>this will not work because name="" alg diya he hmne , it must match with google default</h3>
+     <form action="https://www.google.com/search?">
+    <input type="text" name="Z" >
+    <button>search google</button>
+    </form>
+
+    <h3>Reddit search</h3>
+    <form action="https://www.reddit.com/search/?">
+        <input type="text" name="q" >
+        <button>Search reddit</button>
+    </form>
+
+    <hr>
+
+    <h2>More inputs</h2>
+
+    <h3>Checkboxes</h3>
+    <form action="/birds">
+        <input type="checkbox"  name="agree" id="agree" value="yess sir">  <!-- value nhi hota to "agree=on" aata , but we can specify our own value  using value attribute-->
+        <label for="agree">I agree to all the terms</label> <br>
+        <input type="checkbox" name="disagree" id="disagree" value="no sir" checked>  <!-- checked attribute se by default ye checkbox checked rahega -->
+        <label for="disagree">I disagree</label> <br>
+        <button>submit</button>
+    </form>
+
+    <h3>Radio Buttons</h3>  <!-- to make radio buttons , name should be same-->
+    <form action="/radiobutton">
+        <input type="radio" name="size" id="l" value="l">
+        <label for="l">L size</label>
+        <input type="radio" name="size" id="xl" value="xl">
+        <label for="xl">XL size</label>
+        <input type="radio" name="size" id="xxl" value="xxl">
+        <label for="xxl">XXL size</label> <br>
+        <button>Submit</button>
+    </form>
+
+    <h3>select dropdown</h3>
+    <form action="/pets">
+
+    <label for="pet-select">Choose a pet:</label>
+    <select name="pets" id="pet-select">
+        <option value="">--Please choose an option--</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="hamster" selected >Hamster</option>  <!-- selected attribute se by default ye option select rahega -->
+        <option value="parrot">Parrot</option>
+        <option value="spider">Spider</option>
+        <option value="goldfish">Goldfish</option>
+        
+    </select>
+    <button>Submit</button>
+
+    </form>
+
+    <hr>
+    
+    <form action="/hello">
+
+        <p>
+            <label for="range">choose volume</label>
+            <input type="range" name="volume" id="range" step="5" min="1" max="100" value="1"> 
+            <!-- step attribute defines the increment/decrement step for the range input like +5 or -5
+             ,, value attribute sets the initial value (default value) -->
+        </p>
+        <p>
+            <label for="request">Any special request?</label>
+            <br>
+            <textarea name="request?" id="request" rows="10" cols="35" placeholder="enter your request here"></textarea>
+        </p>
+        
+        <button>submit</button>
+    </form>
+    
+    <h2>validation</h2>
+    <form action="/dummy">
+        <label for="name">enter your name </label>
+        <input type="text" name="name" id="name" placeholder="your name" required>
+         <!-- required attribute se ye field fill krna zaruri ho jata hai -->
+          <br>
+
+          <p>
+            <label for="username">username</label>
+            <input type="text" name="username" id="username" placeholder="username" minlength="5" maxlength="15" required>
+              <!-- minlength and maxlength attributes se hum input ki minimum aur maximum length set kr sakte hai -->
+          </p>
+
+          <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="your email" required>
+                <!-- type="email" se browser automatically check kr lega ki email pattern or syntax valid hai ya nahi -->
+
+          </p>
+
+          <p>
+            <label for="url">URL</label>
+            <input type="url" name="url" id="url" placeholder="url" required>
+                <!-- type="url" se browser automatically check kr lega ki url pattern or syntax valid hai ya nahi -->
+          </p>
+            <button>submit</button>
+    </form>
+    
+
+ 
+ 
+</body>
+
+</html>
