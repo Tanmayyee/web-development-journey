@@ -172,3 +172,49 @@ while (guess !== SECRET) {
     guess = prompt("enter the secret code...");
 }
 console.log("CONGRATS YOU GOT THE SECRET!!!")
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------
+
+const arr=[
+    {
+        a:[1,2,3],
+        b:[4,5,6],
+        c:[7,8,9]
+    },
+    {
+        a:[10,11,12],
+        b:[13,14,15],
+        c:[16,17,18]
+    },
+    {
+        a:[19,20,21],
+        b:[22,23,24],
+        c:[25,26,27]
+    }
+
+]
+
+// different ways to access data 
+
+//method 1
+for(let obj of arr){
+    for(let key in obj){
+        console.log(obj[key]);
+    }
+}
+
+
+//method 2  -
+for(let obj of arr){
+    for(let key in obj){
+        for(let num of obj[key])
+        {
+            console.log(num)
+        }
+
+    }
+}

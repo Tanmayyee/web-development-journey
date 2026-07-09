@@ -67,3 +67,9 @@ console.log(sortletters); // ["a", "b", "c", "d"]
 const scores = [40, 100, 1];
 scores.sort((a, b) => a - b); 
 console.log(scores); // [1, 40, 100]
+
+
+
+
+
+
