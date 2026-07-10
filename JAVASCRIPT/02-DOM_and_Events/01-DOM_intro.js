@@ -118,3 +118,44 @@ paragraph.classList.contains('onemoreclass')  //return true or false , if class 
 
 paragraph.classList.toggle('onemoreclass')  //Toggles the class on and off like a light switch  //Adds the class if it's missing, removes it if it's already there
 
+
+
+//=======================================================================================================
+//============================= Traversing parent/child/sibling ==================================
+//=======================================================================================================
+
+const firstBold=document.querySelector('b')
+
+firstBold.parentElement   // return =  <p>...</p>
+
+firstBold.parentElement.parentElement   // return = <body>...</body>
+
+
+//childElementCount   and   children ---------------------
+
+const paragraph1=document.querySelector('p')
+
+paragraph1.childElementCount   //returns the number of child elements inside an element.
+
+paragraph1.children  //returns all the child HTML elements of an element as an HTMLCollection.
+//this will return = HTMLCollection(8) [b, b, a.hello, a, a, a, a, a] ,, "and its not an array"
+
+paragraph1.children[2]  //returns a.hello
+
+paragraph1.children[2].parentElement  //returns <p>...</p>
+
+
+//sibling ---------------------------
+
+const squareImg=document.querySelector('.square')
+
+squareImg.nextSibling             
+                                    // returns "#text" because HTML treats spaces and line breaks in html file as text nodes. nextSibling and previousSibling returns the very next node, not just the next HTML element.
+// or squareImg.previousSibling
+
+
+// therefore we use nextElementSibling  and  previousElementSibling 
+
+squareImg.nextElementSibling  //returns img ( next img )
+
+squareImg.previousElementSibling  //returns <p>...</p>
