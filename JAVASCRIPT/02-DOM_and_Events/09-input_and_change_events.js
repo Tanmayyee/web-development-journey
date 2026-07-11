@@ -21,3 +21,18 @@ input2.addEventListener('change',function(e){       //change event : runs when t
 'submit'   // when a form is submitted
 'keydown'  // when a key is pressed
 'keyup'    // when a key is released
+
+
+
+// //task : to get "Welcome, input"  , without typing welcome and initially the text is "Enter Your Username":
+
+// const input=document.querySelector('#username')
+// const h1=document.querySelector('h1')
+
+// input.addEventListener('input',function(e){
+//     if(input.value===""){
+//         h1.innerText='Enter Your Username'
+//     }else{
+//     h1.innerText=`Welcome, ${input.value}`         //if , if condition is not used then welcome will come as a output even if we type nothing
+//     }
+// })
