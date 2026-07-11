@@ -2,7 +2,7 @@
 
 const mouse=document.querySelector('button')
 
-mouse.addEventListener('click',function(e){
+mouse.addEventListener('click',function(e){               // e  is k/a event object or simply event 
     console.log(e)
 })
 
