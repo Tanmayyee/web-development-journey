@@ -159,3 +159,122 @@ squareImg.nextSibling
 squareImg.nextElementSibling  //returns img ( next img )
 
 squareImg.previousElementSibling  //returns <p>...</p>
+
+
+
+
+//=============================================================================================================
+//============================= Append & AppendChild ==========================================================
+//=============================================================================================================
+
+// creating a new element(like img , b , p , h1 .....) to add in html file --------------------- 
+
+
+//METHOD ONE : using appendChild()
+
+const newImg=document.createElement('img')
+
+//step 1: adding source link to the img
+newImg.src="https://i.ytimg.com/vi/h06ByoSkpH0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDM9GW6JDbSt1eVeomn82cnMeLj1Q"
+
+//step 2: img still not on the page , so we need to append it to the page
+document.body.appendChild(newImg)  // appendChild() adds the new element as the last child of the parent element 
+//or =  const pizza=document.querySelector('p') ,
+//pizza.appendChild(newImg)  , this will end newImg at the end of paragraph
+
+//step 3: add class to newImg
+newImg.classList.add('square')
+
+
+//another example for creating new element
+const h3=document.createElement('h3')
+h3.innerText='I am new'
+document.body.appendChild(h3)     //at the end of body 
+
+//so make a change first to the new element then append 
+
+//###############################################################################################################################
+//Everything in the DOM is a node, including HTML elements ,text, and attributes 
+//Things that are not nodes :  primitive data types(like strings, numbers, booleans) , custom JS objects, window object.
+
+//appendChild() accepts only Node objects like element nodes(div,p..)or text nodes created with document.createTextNode()
+// , while append() accepts Node objects like element nodes or text nodes and plain text strings directly.
+//###############################################################################################################################
+
+//METHOD TWO : using append
+
+const paraz=document.querySelector('p')
+
+paraz.append('Hey I am a new text yayyyyyy using append()!!!!!!!') //we can add string directly using append() ,, this is not possible with appendChild()
+
+// to add string by using appendChild , we have to use document.createTextNode()
+//ex=    const paraz=document.querySelector('p')
+//       newTextAdd=document.createTextNode('Hey I am a new text yayyyyy !!!!')
+//       paraz.appendChild(newTextAdd)
+
+//we can add multiple things using append()
+paraz.append('heyyyyy','heyooo','byeee')
+
+
+//PREPEND() :----------------------------------------------------------
+
+//task :  add new bold text at the starting of paragraph
+const newB=document.createElement('b')                           //to create a new element 
+newB.append('HEY THERE !!!!!!!')                                    //to add text 
+paraz.prepend(newB)                                              //use prepend to add new element at the starting of target element
+
+
+//insertAdjacentElement():---------------------------------------------
+
+//insertion position =
+//'beforebegin' :before the targetElement itself.
+//'afterbegin'  :just inside the targetElement, before its first child.
+//'beforeend'   :just inside the targetElement, after its last child.
+//'afterend'   :after the targetElement itself
+
+
+//insertAdjacentElement() only insert elements , if we want to insert text or HTML,
+//then ,  insertAdjacentText()     and     insertAdjacentHTML()  will be used.
+
+const heading2=document.createElement('h2') 
+heading2.append('Are adorable chicken!!!!![insertAdjacentElement()]')
+const headingg1=document.querySelector('h1')
+headingg1.insertAdjacentElement('afterend',heading2)
+
+
+//after() ------------------------------------------------------------
+//insert an element after some other element 
+
+const heading3=document.createElement('h3')
+heading3.innerText='Hey I am an h3 , [after()]'
+const head1=document.querySelector('h1')
+head1.after(heading3)
+
+
+//before()-------------------------------------------------------------
+//insert an element before some other element 
+
+
+
+//=============================================================================================================
+//======================================= remove() and removeChild() ==========================================
+//=============================================================================================================
+
+//used to remove an element 
+
+//removeChild()  ----- old method     //it can not remove element directly , we have to use parent element of target element
+
+// const pic=document.querySelector('img')
+// const picParent=pic.parentElement
+// picParent.removeChild(pic)
+
+// or =
+//     const pic=document.querySelector('img')
+//     pic.parentElement.removeChild(pic)        
+
+
+//remove() ------------------ can remove element directly 
+
+// const pix=document.querySelector('img')
+// pix.remove()
+
