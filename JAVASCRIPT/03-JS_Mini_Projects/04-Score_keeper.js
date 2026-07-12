@@ -2,6 +2,8 @@ const p1Btn=document.querySelector('#p1Btn')
 const p2Btn=document.querySelector('#p2Btn')
 const resetBtn=document.querySelector('#resetBtn')
 const select=document.querySelector('#select')
+const p1Display=document.querySelector('#p1Display')
+const p2Display=document.querySelector('#p2Display')
 
 let p1Score=0;
 let p2Score=0;
