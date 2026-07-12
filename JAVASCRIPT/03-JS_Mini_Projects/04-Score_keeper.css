@@ -1,0 +1,157 @@
+body{
+    display: flex;
+    background-image: linear-gradient(#030b3b,#616186);
+    min-height: 100vh;
+     
+    
+}
+
+.main{
+    margin: auto;
+    margin-top: 1.2em;
+    box-shadow: 0 8px 25px  rgba(122, 119, 129, 1.08);
+    background-color: white;
+    
+}
+img{
+    
+    height: 300px;
+    width: 100%
+    
+}
+#h1{
+    border-bottom: 1px solid rgb(233, 233, 233);
+    padding-left: 10px;
+    height: 25px;
+    box-sizing: border-box;
+}
+h1{
+    font-size: 1em;
+
+}
+h2{
+    padding-left: 10px;
+    margin-top: 5px;
+    font-size:2em;
+}
+p{
+    margin-top: -20px;
+    padding-left: 10px;
+    color: #636363;
+    font-size: 0.8em;
+}
+b{
+    margin-top: 5px;
+    padding-left: 10px;
+}
+#selectDiv{
+    display: block;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+#playBtn{
+    display: flex;
+}
+#p1Btn{
+    height: 50px;
+    flex:1;
+    background-color: rgb(80, 254, 103);
+    cursor: pointer;
+}
+#p2Btn{
+    height: 50px;
+    flex:1;
+    background-color: rgb(58, 160, 255);
+    cursor: pointer;   
+}
+#resetBtn{
+    height: 50px;
+    flex:1;
+    background-color: rgb(255, 72, 72);
+    cursor: pointer;
+}
+select{
+    border-radius: 50px;
+    border: 1px solid rgb(0, 0, 0);
+}
+#p1Btn:hover {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+#p2Btn:hover{
+    background-color: rgb(49, 49, 187);
+    color:white;
+    cursor: pointer;
+}
+#resetBtn:hover{
+    background-color: red;
+    color:white;
+    cursor: pointer;
+}
+.winner{
+    color:green
+}
+.loser{
+    color: red;
+}
+
+/* ========== Mobile (600px and below) ========== */
+@media (max-width: 600px) {
+
+    body{
+        padding: 15px;
+    }
+
+    .main{
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    img{
+        height: 220px;
+        object-fit: cover;
+    }
+
+    #h1{
+        height: auto;
+        padding: 10px;
+    }
+
+    h1{
+        font-size: 1rem;
+    }
+
+    h2{
+        font-size: 1.7rem;
+        margin-top: 10px;
+    }
+
+    p,
+    b{
+        font-size: 0.9rem;
+    }
+
+    #selectDiv{
+        padding: 10px;
+    }
+
+    select{
+        font-size: 0.9rem;
+        padding: 4px 8px;
+    }
+
+    #playBtn{
+        flex-direction: column;
+    }
+
+    #p1Btn,
+    #p2Btn,
+    #resetBtn{
+        width: 100%;
+        height: 50px;
+        font-size: 0.95rem;
+    }
+
+}
