@@ -7,7 +7,7 @@ const p2Display=document.querySelector('#p2Display')
 
 let p1Score=0;
 let p2Score=0;
-let winningScore=5;
+let winningScore=3;
 let isGameOver =false;
 
 p1Btn.addEventListener('click',function(){
@@ -19,6 +19,8 @@ p1Btn.addEventListener('click',function(){
         p1Display.classList.add('winner')
         p2Display.classList.add('loser')
         isGameOver=true; 
+        p1Btn.disabled=true;
+        p2Btn.disabled=true;
     }
 })
 
@@ -33,6 +35,8 @@ p2Btn.addEventListener('click',function(){
         p2Display.classList.add('winner')
         p1Display.classList.add('loser')
         isGameOver=true; 
+        p1Btn.disabled=true;
+        p2Btn.disabled=true;
     }
 })
 
@@ -52,4 +56,6 @@ function reset(){
     isGameOver=false;
     p1Display.classList.remove('winner','loser')
     p2Display.classList.remove('loser','winner')
+    p1Btn.disabled=false;
+    p2Btn.disabled=false;
 }

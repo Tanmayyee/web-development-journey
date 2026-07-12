@@ -89,6 +89,18 @@ select{
     color:white;
     cursor: pointer;
 }
+#p1Btn:disabled{
+    background-color: #d3d3d3;
+    color: #8c8c8c;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+#p2Btn:disabled{
+    background-color: #d3d3d3;
+    color: #8c8c8c;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
 .winner{
     color:green
 }
