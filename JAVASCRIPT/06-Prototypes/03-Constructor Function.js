@@ -23,6 +23,11 @@ Color.prototype.hex=function(){
 		);
 }
 
+Color.prototype.rgba = function(a = 1.0) {
+	const { r, g, b } = this;
+	return `rgba(${r}, ${g}, ${b}, ${a})`;
+};
+
 // *****************
 // THE NEW OPERATOR!
 // *****************
@@ -33,11 +38,13 @@ const newColor= new Color(20,255,40);
 
 newColor.rgb();
 newColor.hex();
+newColor.rgba()
 
 const secondColor= new Color(35,150,50);
 
 secondColor.rgb();
 secondColor.hex();
+newColor.rgba()
 
 //newColor === secondColor     ( true )
 
