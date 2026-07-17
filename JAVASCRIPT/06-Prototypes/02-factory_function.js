@@ -9,13 +9,13 @@ function makeColor(r,g,b){              //makeColor is a factory function
     color.blue=b;
 
     color.rgb=function(){                  //methods of color object
-        const {r,g,b}=this;
-        return `rgb(${r},${g},${b})`
+        const { red, green, blue } = this;
+        return `rgb(${red},${green},${blue})`
     }
     color.hex=function(){
-        const {r,g,b}=this;
+        const { red, green, blue } = this;
         return  (
-			'#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)
+			'#' + ((1 << 24) + (red << 16) + (green << 8) + blue).toString(16).slice(1)
 		);
     }
     return color;
@@ -28,6 +28,8 @@ newColor.hex()
 const secondColor= makeColor(45, 255, 160)
 secondColor.rgb()
 secondColor.hex()
+
+//newColor === secondColor    ( false )
 
 //NOTE: factory functions recreate methods for every object instance, which leads to higher memory usage because methods are not shared via the prototype.
 
