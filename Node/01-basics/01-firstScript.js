@@ -2,7 +2,7 @@
 // 🚀 HOW TO RUN THIS SCRIPT IN THE VS CODE TERMINAL
 // =================================================================
 //
-// STEP 1: Save your file! 
+// STEP 1: Save your file!
 //         Make sure to press 'Ctrl + S' so Node can see your latest changes.
 //
 // STEP 2: Check your terminal folder path at the bottom.
@@ -15,7 +15,6 @@
 //
 // =================================================================
 
-for(let i=0;i<=10;i++){
-    console.log("Our first brush with node")
+for (let i = 0; i <= 10; i++) {
+  console.log("Our first brush with node");
 }
-
