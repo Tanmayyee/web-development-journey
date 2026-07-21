@@ -1,6 +1,7 @@
 import express from "express"
 const app= express();
 import path from 'path'
+import redditData from './data.json' with {type:'json'};
 
 app.set('view engine','ejs')
 
@@ -15,6 +16,17 @@ app.get('/cats',(req,res)=>{
     const cats=['Milo','Luna','Oliver','Salem','Mochi']
     res.render('loops',{cats})
 
+})
+
+app.get('/r/:subreddit',(req,res)=>{
+    const {subreddit}=req.params;
+    const data= redditData[subreddit]
+        if(data){
+            res.render('subreddit',{...data})
+            // console.log(data)   -- to check , working or not
+        }else{
+            res.render('notfound',{subreddit})
+        }
 })
 
 app.listen(1000,()=>{
