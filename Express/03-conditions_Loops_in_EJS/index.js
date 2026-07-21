@@ -11,6 +11,12 @@ app.get('/random',(req,res)=>{
     res.render('condition',{num})
 })
 
+app.get('/cats',(req,res)=>{
+    const cats=['Milo','Luna','Oliver','Salem','Mochi']
+    res.render('loops',{cats})
+
+})
+
 app.listen(1000,()=>{
     console.log("listning from port:1000")
 })
