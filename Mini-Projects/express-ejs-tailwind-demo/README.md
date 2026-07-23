@@ -13,8 +13,26 @@ A simple demo project built to practice **Express.js**, **EJS**, **dynamic routi
 - Responsive navigation bar
 - Static asset serving
 - Custom 404 page for unknown subreddits
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/e3c808f6-5b06-4b8f-b25d-3406e87f334a"
+    alt="Home Page"
+    width="80%"
+  />
+</p>
 
-  <img width="1887" height="908" alt="Screenshot 2026-07-23 190211" src="https://github.com/user-attachments/assets/e3c808f6-5b06-4b8f-b25d-3406e87f334a" />
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/5d5a0ee8-240b-4539-b3d5-b3769b997143"
+    alt="Subreddit Page"
+    width="48%"
+  />
+  <img
+    src="https://github.com/user-attachments/assets/ba59b4d4-d0f8-4d59-9280-a42cbc4835ab"
+    alt="404 Page"
+    width="48%"
+  />
+</p>
 
 ## Tech Stack
 
