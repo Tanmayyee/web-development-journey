@@ -1,0 +1,46 @@
+<nav class="bg-red-600 text-white w-full">
+    <div class="flex items-center justify-between h-11.5 px-6 max-w-9xl mx-auto">
+      
+
+      <a href="/" class="text-xl font-bold hover:text-black transition-colors">Express demo</a>
+      
+     
+      <div class="hidden lg:flex">
+        <ul class="flex gap-6">
+          <li><a href="/" class="hover:text-black transition-colors">Home</a></li>
+          <li><a href="/random" class="hover:text-black transition-colors">Random</a></li>
+          <li><a href="/r/soccer" class="hover:text-black transition-colors">Soccer</a></li>
+          <li><a href="/r/chickens" class="hover:text-black transition-colors">Chickens</a></li>
+          <li><a href="/r/mightyharvest" class="hover:text-black transition-colors">Mightyharvest</a></li>
+        </ul>
+      </div>
+
+     
+      <button id="mobile-btn" class="lg:hidden text-white hover:text-black focus:outline-none">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      </button>
+
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-red-700 border-t border-red-800">
+      <ul class="flex flex-col px-6 py-4 gap-4">
+        <li><a href="/" class="block hover:text-black transition-colors">Home</a></li>
+        <li><a href="/random" class="block hover:text-black transition-colors">Random</a></li>
+        <li><a href="/r/soccer" class="block hover:text-black transition-colors">Soccer</a></li>
+        <li><a href="/r/chickens" class="block hover:text-black transition-colors">Chickens</a></li>
+        <li><a href="/r/mightyharvest" class="block hover:text-black transition-colors">Mightyharvest</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    const btn = document.getElementById('mobile-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+  </nav>
