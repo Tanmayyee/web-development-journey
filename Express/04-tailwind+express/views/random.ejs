@@ -1,0 +1,53 @@
+<%- include ('partials/head') %>
+    <%- include('partials/navbar') %>
+
+
+
+        <main class="max-w-4xl mx-auto px-6 py-16 w-full">
+
+            <!-- Header Section -->
+            <div class="mb-12 text-center">
+                <!-- <%= %>: Evaluates the JavaScript inside and outputs the result directly to the webpage (used for printing variables). -->
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
+                    Random number: <span class="text-indigo-600">
+                        <%= num %>
+                    </span>
+                </h1>
+                <div class="w-24 h-1.5 bg-indigo-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Logic Results Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+
+                <!-- Card 1: If/Else Logic -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center flex flex-col justify-center">
+                    <span class="text-xs font-bold text-gray-400 tracking-widest uppercase mb-3 block">If/Else
+                        Method</span>
+
+                    <!-- <% %>: Runs JavaScript logic (like if/else statements or loops) behind the scenes without printing anything to the screen. -->
+                    <% if(num % 2===0) { %>
+                        <h2 class="text-2xl font-bold text-emerald-500">That is an even number</h2>
+                        <% } else { %>
+                            <h2 class="text-2xl font-bold text-rose-500">That is an odd number</h2>
+                            <% } %>
+                </div>
+
+                <!-- Card 2: Ternary Logic -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center flex flex-col justify-center">
+                    <span class="text-xs font-bold text-gray-400 tracking-widest uppercase mb-3 block">Ternary
+                        Method</span>
+
+                    <!-- ternary operator (condition ? true : false) -->
+                    <h2 class="text-2xl font-bold text-blue-500">
+                        That number is: <span class="text-gray-900">
+                            <%= num % 2===0 ? 'Even' : 'Odd' %>
+                        </span>
+                    </h2>
+                </div>
+
+            </div>
+
+        </main>
+        <%- include('partials/footer') %>
