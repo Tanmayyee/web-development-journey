@@ -63,9 +63,19 @@ app.post('/comments',(req,res)=>{
 // *******************************************
 app.get('/comments/:id',(req,res)=>{
     const {id}=req.params                           //getting id 
-    const Comt=fakeData.find(c=> c.id===id)     //finding comment of that particular id  // /comments/:id  gives id in string form , therefore parseInt is used here.
+    const Comt=fakeData.find(c=> c.id===id)     //finding comment of that particular id  
     res.render('show',{Comt})
 })                                         //find() returns the entire object that matches the condition(here id is that condition). under the name of newly set variable ( here Comt is that variable)
+
+
+// *******************************************
+// EDIT - renders a form to edit a comment
+// *******************************************
+app.get('/comments/:id/edit',(req,res)=>{
+    const {id}=req.params
+    const editComt=fakeData.find(c=>c.id===id)
+    res.render('edit',{editComt})
+})
 
 
 // *******************************************
