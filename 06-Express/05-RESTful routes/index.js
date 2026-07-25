@@ -1,9 +1,28 @@
+//CRUD = create , read , update , delete
+
+/*
+ * NAME       PATH                  VERB      PURPOSE
+ * -------------------------------------------------------------------------
+ * Index      /comments             GET       Display all comments
+ * New        /comments/new         GET       Form to create new comment
+ * Create     /comments             POST      Creates new comment on server
+ * Show       /comments/:id         GET       Details for one specific comment
+ * Edit       /comments/:id/edit    GET       Form to edit specific comment
+ * Update     /comments/:id         PATCH     Updates specific comment on server
+ * Destroy    /comments/:id         DELETE    Deletes specific item on server
+*/
+
 import express, { urlencoded } from "express"
 const app=express()
 import path from "path"
 import { v4 as uuidv4 } from 'uuid';
 
+// Standard HTML <form> elements can only send two request - get , post . Therefore, we use method-override middleware for other requests like patch,delete,put etc.
+import methodOverride from 'method-override'
+
 app.use(express.urlencoded({extended:true}))
+
+app.use(methodOverride('_method'))
 
 app.set('view engine','ejs')
 
@@ -88,6 +107,17 @@ app.patch('/comments/:id',(req,res)=>{
     foundComt.comment=newComment;           //update the comment with the data from req.body:
     res.redirect('/comments')
 })
+
+
+// *******************************************
+// DELETE/DESTROY- removes a single comment
+// *******************************************
+app.delete('/comments/:id',(req,res)=>{
+    const {id}=req.params;
+    fakeData= fakeData.filter(c=> c.id !== id)   //priority is to maintain immutability , therefore we created new fakeData using filter() method  , filter() creates a new array copy ( here desire id ko chodke sabhi ko new array me copy kr liya gya he)
+    res.redirect('/comments')
+})
+
 
 app.listen(1600,()=>{
     console.log('listining on port 1600')

@@ -12,6 +12,9 @@
     <a href="/comments">see all comments</a>
     <br>
     <a href="/comments/new">Add new comments</a>
-    
+    <br>
+    <form method="POST" action="/comments/<%=Comt.id%>/?_method=DELETE">
+        <button>delete</button>
+    </form>
 </body>
 </html>

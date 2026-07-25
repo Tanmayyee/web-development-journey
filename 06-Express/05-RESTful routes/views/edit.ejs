@@ -7,8 +7,16 @@
 </head>
 <body>
     <h1>Edit</h1>
+
+    <!-- Standard HTML <form> elements can only send two request - get , post . Therefore, we use method-override middleware for other requests like patch,delete,put etc. -->
+    <form method="POST" action="/comments/<%=editComt.id %>?_method=PATCH">    <!-- METHOD SET TO POST , BUT ?_METHOD=PATCH  WILL MAKE EXPRESS TREAT THIS FORM AS A PATCH REQUEST -->
     <textarea name="comment" id="" cols="30" rows="5">
         <%=editComt.comment %>
     </textarea>
+
+    <button>save</button>
+    </form>
+
+    <a href="/comments">back to index</a>
 </body>
 </html>
