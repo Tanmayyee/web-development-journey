@@ -37,6 +37,8 @@ let fakeData =[
 // INDEX - renders multiple comments
 // **********************************
 app.get('/comments',(req,res)=>{
+    // res.send('check (browser)')
+    // console.log('check (terminal)')
     res.render('index',{fakeData})
 })
 
@@ -60,9 +62,21 @@ app.post('/comments',(req,res)=>{
 // SHOW - details about one particular comment
 // *******************************************
 app.get('/comments/:id',(req,res)=>{
+    const {id}=req.params                           //getting id 
+    const Comt=fakeData.find(c=> c.id===id)     //finding comment of that particular id  // /comments/:id  gives id in string form , therefore parseInt is used here.
+    res.render('show',{Comt})
+})                                         //find() returns the entire object that matches the condition(here id is that condition). under the name of newly set variable ( here Comt is that variable)
+
+
+// *******************************************
+// UPDATE - updates a particular comment
+// *******************************************
+app.patch('/comments/:id',(req,res)=>{
     const {id}=req.params
-    const showComt=fakeData.find(c=> c.id===id)       // /comments/:id  gives id in string form , therefore parseInt is used here.
-    res.render('show',{showComt})
+    const newComment=req.body.comment           //get new text from req.body
+    const foundComt=fakeData.find(c=>c.id===id)  // Find the comment object that matches the requested ID. 
+    foundComt.comment=newComment;           //update the comment with the data from req.body:
+    res.redirect('/comments')
 })
 
 app.listen(1600,()=>{
