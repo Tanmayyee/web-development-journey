@@ -11,22 +11,22 @@ app.set('views',path.join(import.meta.dirname,'/views'))
 //our fake database: 
 let fakeData =[
     {
-            id: 500,
+            id: 1,
             username: 'Todd',
             comment: 'lol that is so funny!'
         },
         {
-            id: 300,
+            id: 2,
             username: 'Skyler',
             comment: 'I like to go birdwatching with my dog'
         },
         {
-            id: 600,
+            id: 3,
             username: 'Sk8erBoi',
             comment: 'Plz delete your account, Todd'
         },
         {
-            id: 800,
+            id: 4,
             username: 'onlysayswoof',
             comment: 'woof woof woof'
         }
@@ -55,6 +55,14 @@ app.post('/comments',(req,res)=>{
     res.redirect('/comments')
 })
 
+// *******************************************
+// SHOW - details about one particular comment
+// *******************************************
+app.get('/comments/:id',(req,res)=>{
+    const {id}=req.params
+    const showComt=fakeData.find(c=> c.id===parseInt(id))       // /comments/:id  gives id in string form , therefore parseInt is used here.
+    res.render('show',{showComt})
+})
 
 app.listen(1600,()=>{
     console.log('listining on port 1600')
