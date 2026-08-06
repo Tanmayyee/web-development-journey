@@ -130,7 +130,10 @@ Movie.insertMany([
   {title: "hola hulu",year: 2045,Score: 9.0,rating: "PG-13"},
   {title: "zomboo",year: 2011,Score: 7.0,rating: "PG-16"},
   {title: "zombieland 2",year: 2053,Score: 8.0,rating: "R"},
-  console.log('hola hola hola hola')
 ])
+.then((data)=>{
+  console.log("movies inserted successfully")
+  console.log(data)
+})
 
 
