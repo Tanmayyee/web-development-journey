@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MONGO_URI = 'mongodb://127.0.0.1:27017/movies';    //uri = uniform resource identifier
+const MONGO_URI = 'mongodb://127.0.0.1:27017/movieShow';    //uri = uniform resource identifier
 
 const connectDB = async () => {
   try {
@@ -88,3 +88,28 @@ const inception = new Movie({
 
 // 4.) -------
 
+avengers.save()
+  .then(() => console.log('Avengers saved to the database'))
+  .catch((error) => console.error('Error saving Avengers:', error))
+
+spiderman.save()
+.then(()=> console.log('spiderman saved to the database '))
+.catch((e)=> console.error('error',e))
+
+interstellar.save()
+
+inception.save()
+
+
+// or 
+
+// const saveMovies= async () =>{
+//   await avengers.save()
+//   await spiderman.save()
+//   await interstellar.save()
+//   await inception.save()
+
+//   console.log('movie saved successfully.')
+// }
+
+// saveMovies()
