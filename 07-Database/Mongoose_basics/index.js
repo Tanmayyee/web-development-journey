@@ -86,36 +86,27 @@ const inception = new Movie({
 });
 
 
+// --- QUICK RULE FOR AWAIT ---
+// TOP-LEVEL AWAIT: You can use 'await' without 'async' ONLY at the root of an ES Module file (outside any function).
+// ASYNC FUNCTIONS: If you need to use 'await' INSIDE a function (like an Express route or callback), that function MUST have the 'async' keyword.
+
+
 // 4.) -------
 
-avengers.save()
-  .then(() => console.log('Avengers saved to the database'))
-  .catch((error) => console.error('Error saving Avengers:', error))
+//older way -------------------------------------         
+// avengers.save()
+//   .then(() => console.log('Avengers saved to the database'))
+//   .catch((error) => console.error('Error saving Avengers:', error))
 
-spiderman.save()
-.then(()=> console.log('spiderman saved to the database '))
-.catch((e)=> console.error('error',e))
-
-interstellar.save()
-
-inception.save()
-
-
-// or 
-
-// const saveMovies= async () =>{
-//   await avengers.save()
-//   await spiderman.save()
-//   await interstellar.save()
-//   await inception.save()
-
-//   console.log('movie saved successfully.')
-// }
-
-// saveMovies()
+//modern way ------------------------------------      to catch error in async await , use try and catch 
+await avengers.save();
+await spiderman.save();
+await interstellar.save();
+await inception.save();
+console.log('All single movies saved successfully.');
 
 
-//######################################################  insertMany()  ##################################################
+//######################################################  insertMany  ##################################################
 
 //one at a time 
 // const anaconda new Movie({title:"anaconda", year:3113 , score:5, rating:"pg-13"})
@@ -123,32 +114,46 @@ inception.save()
 
 //multiple documents at once  ,, insertmany() automatically saves the documents to the database.
 
-Movie.insertMany([
-  {title: "shit movie",year: 2012,Score: 2.0,rating: "PG-13"},
-  {title: "hola hulu",year: 2045,Score: 9.0,rating: "PG-13"},
-  {title: "zomboo",year: 2011,Score: 7.0,rating: "PG-16"},
-  {title: "zombieland 2",year: 2053,Score: 8.0,rating: "R"},
-])
-.then((data)=>{
-  console.log("movies inserted successfully")
-  console.log(data)
-})
+//older way --------------------------------------------
+// Movie.insertMany([
+//   {title: "shit movie",year: 2012,Score: 2.0,rating: "PG-13"},
+//   {title: "hola hulu",year: 2045,Score: 9.0,rating: "PG-13"},
+//   {title: "zomboo",year: 2011,Score: 7.0,rating: "PG-16"},
+//   {title: "zombieland 2",year: 2053,Score: 8.0,rating: "R"},
+// ])
+// .then((data)=>{
+//   console.log("movies inserted successfully")
+//   console.log(data)
+// })
+
+//new way ---------------------------------------------
+// No .then() needed  because we are using await ->
+const insertData = await Movie.insertMany([
+  {title: "shit movie", year: 2012, Score: 2.0, rating: "PG-13"},
+  {title: "hola hulu", year: 2045, Score: 9.0, rating: "PG-13"},
+  {title: "zomboo", year: 2011, Score: 7.0, rating: "PG-16"},
+  {title: "zombieland 2", year: 2053, Score: 8.0, rating: "R"},
+]);
+
+console.log("movies inserted successfully");
+console.log(insertData);
 
 
 
 //######################################################  find()  ##################################################
 
-Movie.find({year: 2012 , title:"shit movie"})          //node.js command / mongoose    //node index.js only    { .data index.js not work with import mongoose , .data only words with commonJS not with module}
-.then((data)=>{
-  console.log("and the movie is :")
-  console.log(data)})
+const foundMovies = await Movie.find({ year: 2012, title: "shit movie" });     //node.js command / mongoose    //node index.js only    { .data index.js not work with import mongoose , .data only words with commonJS not with module}
+console.log("And the movie found with find() is:");
+console.log(foundMovies);
 
 // db.movies.find({year:2012})     //mongosh command
 
 
 //#################################################### findOne() ###################################################
 
-Movie.findOne({rating:"R"})
+const rRatedMovie = await Movie.findOne({ rating: "R" });
+console.log("The R rated movie found with findOne() is:");
+console.log(rRatedMovie);
 
 //db.movies.findOne({rating:"R"})
 
