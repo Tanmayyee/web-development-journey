@@ -157,3 +157,9 @@ console.log(rRatedMovie);
 
 //db.movies.findOne({rating:"R"})
 
+
+//#################################################### findById() ###################################################
+
+const findById = await Movie.findById('6a74ce620172250bd57ec83e')            //no Curly braces
+console.log("movie found with findById() is :")
+console.log(findById)
