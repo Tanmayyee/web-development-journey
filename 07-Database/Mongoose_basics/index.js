@@ -113,3 +113,24 @@ inception.save()
 // }
 
 // saveMovies()
+
+
+//###############################################################################################################
+
+//insertMany---------------------------------------------------------------------------------------
+
+//one at a time 
+// const anaconda new Movie({title:"anaconda", year:3113 , score:5, rating:"pg-13"})
+// anaconda.save()
+
+//multiple documents at once  ,, insertmany() automatically saves the documents to the database.
+
+Movie.insertMany([
+  {title: "shit movie",year: 2012,Score: 2.0,rating: "PG-13"},
+  {title: "hola hulu",year: 2045,Score: 9.0,rating: "PG-13"},
+  {title: "zomboo",year: 2011,Score: 7.0,rating: "PG-16"},
+  {title: "zombieland 2",year: 2053,Score: 8.0,rating: "R"},
+  console.log('hola hola hola hola')
+])
+
+
