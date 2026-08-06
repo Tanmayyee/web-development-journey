@@ -115,9 +115,7 @@ inception.save()
 // saveMovies()
 
 
-//###############################################################################################################
-
-//insertMany---------------------------------------------------------------------------------------
+//######################################################  insertMany()  ##################################################
 
 //one at a time 
 // const anaconda new Movie({title:"anaconda", year:3113 , score:5, rating:"pg-13"})
@@ -137,3 +135,12 @@ Movie.insertMany([
 })
 
 
+
+//######################################################  find()  ##################################################
+
+Movie.find({year: 2012 , title:"shit movie"})          //node.js command    //node index.js only    { .data index.js not work with import mongoose , .data only words with commonJS not with module}
+.then((data)=>{
+  console.log("and the movie is :")
+  console.log(data)})
+
+// db.movies.find({year:2012})     //mongosh command
