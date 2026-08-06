@@ -138,9 +138,17 @@ Movie.insertMany([
 
 //######################################################  find()  ##################################################
 
-Movie.find({year: 2012 , title:"shit movie"})          //node.js command    //node index.js only    { .data index.js not work with import mongoose , .data only words with commonJS not with module}
+Movie.find({year: 2012 , title:"shit movie"})          //node.js command / mongoose    //node index.js only    { .data index.js not work with import mongoose , .data only words with commonJS not with module}
 .then((data)=>{
   console.log("and the movie is :")
   console.log(data)})
 
 // db.movies.find({year:2012})     //mongosh command
+
+
+//#################################################### findOne() ###################################################
+
+Movie.findOne({rating:"R"})
+
+//db.movies.findOne({rating:"R"})
+
