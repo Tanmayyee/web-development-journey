@@ -34,6 +34,11 @@ app.get('/products',async(req,res)=>{               //for testing the connection
     res.render('products/index',{products})
 })
 
+app.get('/products/:id', async(req,res)=>{
+    const {id}=req.params
+    const products = await Product.findById(id)
+    res.render('products/show',{products})
+})
 
 app.listen(2300,()=>{
     console.log("Listening on Port 2300!")
