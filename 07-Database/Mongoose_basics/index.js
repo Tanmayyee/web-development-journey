@@ -32,6 +32,7 @@ const movieSchema= new mongoose.Schema({
 })
 
 //year , score , rating ... are known as field names or keys or properties of the schema , and also in document.  
+// fields are case sensitive. mongo treats year , Year , YEAR completely different.
 // The values of these fields are known as field values or values or properties of the schema , and also in document.
 
 //permitted schemaTypes are : 
@@ -249,5 +250,37 @@ console.log(regexMovies)
 // Movie.find({title:"batman"})      this will find all movies with title "batman" only not "batman begins" , and it is case sensitive , means it will match "batman" only not "Batman" or "BATMAN" .
 // Movie.find({title:{$regex:"batman" , $options:"i"}})  this will find all movies with title that contains "batman" , case insensitive , means it will match "batman" or "Batman" or "BATMAN" or "batman begins" or "The Batman" etc.
 
+
+
+//############################################  updateOne()  #############################################################
+
+const updateOneMovie = await Movie.updateOne({year:2053},{$set:{Score:10.0}}) //this will update the first movie that matches the query {year:2053} and set its Score to 10.0
+console.log("movie with year 2053 updated to have score 10.0 :")
+console.log(updateOneMovie)
+
+//############################################ findOneAndUpdate()  #############################################################
+
+const findOneAndUpdateMovie = await Movie.findOneAndUpdate({year:2012},{$set:{Score:9.0}},{new:true}) //this will find the first movie that matches the query {year:2012} and set its Score to 9.0 and return the updated document , {new:true} is to return the updated document
+console.log("movie with year 2012 updated to have score 9.0 :")
+console.log(findOneAndUpdateMovie)
+
+//
+// updateOne()
+// -> Updates one matching document
+// -> Returns update information like matchedCount and modifiedCount
+// -> Does NOT return the updated document
+//
+// findOneAndUpdate()
+// -> Finds one matching document and updates it
+// -> Returns the document
+// -> By default, returns the document BEFORE the update
+// -> Use { new: true } to get the UPDATED document
+//
+
+//############################################ updateMany()  #############################################################
+ 
+const updateManyMovies = await Movie.updateMany({year:{$gte:2053}},{$set:{rating:"hahaha"}}) //this will update all movies that have year greater than or equal to 2012 and set their Score to 7.0
+console.log("movies with year greater than or equal to 2012 updated to have score 7.0 :")
+console.log(updateManyMovies) 
 
 
