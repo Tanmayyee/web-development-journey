@@ -31,6 +31,8 @@ const movieSchema= new mongoose.Schema({
   rating: String                      
 })
 
+//year , score , rating ... are known as field names or keys or properties of the schema , and also in document.  
+// The values of these fields are known as field values or values or properties of the schema , and also in document.
 
 //permitted schemaTypes are : 
 // String
@@ -106,10 +108,36 @@ await inception.save();
 console.log('All single movies saved successfully.');
 
 
+// #######################################  document methods  ###########################################################
+
+// doc.save()  -> saves the document to the database
+// for update delete insert we use CRUD ( create, read, update, delete) operations methods of model class not document methods , because document methods are used to save the document to the database only , not for update or delete.
+
+// #######################################  Mongoose Model Methods / CRUD Operations  ####################################### 
+
+// CREATE
+// Model.create()  // we do not use this method , because mongoose automatically creates the document when we create an instance of the model class and save it to the database using doc.save() method.
+// Model.insertMany()
+
+// READ
+// Model.find()
+// Model.findOne()
+// Model.findById()
+
+// UPDATE
+// Model.updateOne()
+// Model.updateMany()
+// Model.findOneAndUpdate()
+
+// DELETE
+// Model.deleteOne()
+// Model.deleteMany()
+// Model.findOneAndDelete()
+
 //######################################################  insertMany  ##################################################
 
 //one at a time 
-// const anaconda new Movie({title:"anaconda", year:3113 , score:5, rating:"pg-13"})
+// const anaconda = new Movie({title:"anaconda", year:3113 , score:5, rating:"pg-13"})
 // anaconda.save()
 
 //multiple documents at once  ,, insertmany() automatically saves the documents to the database.
@@ -142,11 +170,11 @@ console.log(insertData);
 
 //######################################################  find()  ##################################################
 
-const foundMovies = await Movie.find({ year: 2012, title: "shit movie" });     //node.js command / mongoose    //node index.js only    { .data index.js not work with import mongoose , .data only words with commonJS not with module}
+const foundMovies = await Movie.find({ year: 2012, title: "shit movie" });  //model class name   //node.js command / mongoose    //node index.js only    { .data index.js not work with import mongoose , .data only works with commonJS not with module}
 console.log("And the movie found with find() is:");
 console.log(foundMovies);
 
-// db.movies.find({year:2012})     //mongosh command
+// db.movies.find({year:2012})     //mongosh command   //db.collectionName.find({query})
 
 
 //#################################################### findOne() ###################################################
@@ -158,6 +186,7 @@ console.log(rRatedMovie);
 //db.movies.findOne({rating:"R"})
 
 
+
 //#################################################### findById() ###################################################
 
 const findById = await Movie.findById('6a74ce620172250bd57ec83e')            //no Curly braces
@@ -165,7 +194,7 @@ console.log("movie found with findById() is :")
 console.log(findById)
 
 
-//#################################################### operators ###################################################
+//#################################################### operator ###################################################
 
 // $eq -> equal to
 // $gt -> greater than
@@ -219,3 +248,6 @@ console.log(regexMovies)
 
 // Movie.find({title:"batman"})      this will find all movies with title "batman" only not "batman begins" , and it is case sensitive , means it will match "batman" only not "Batman" or "BATMAN" .
 // Movie.find({title:{$regex:"batman" , $options:"i"}})  this will find all movies with title that contains "batman" , case insensitive , means it will match "batman" or "Batman" or "BATMAN" or "batman begins" or "The Batman" etc.
+
+
+
