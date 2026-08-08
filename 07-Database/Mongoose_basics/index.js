@@ -163,3 +163,59 @@ console.log(rRatedMovie);
 const findById = await Movie.findById('6a74ce620172250bd57ec83e')            //no Curly braces
 console.log("movie found with findById() is :")
 console.log(findById)
+
+
+//#################################################### operators ###################################################
+
+// $eq -> equal to
+// $gt -> greater than
+// $gte -> greater than or equal to
+// $lt -> less than
+// $lte -> less than or equal to
+// $ne -> not equal to
+// $in -> //matches any value in the array
+// $nin -> not in array   //opposite of $in
+// $or -> logical OR
+// $and -> logical AND
+// $not -> logical NOT
+// $exists -> field exists or not
+// $regex -> regular expression
+// $size -> array size
+// $all -> all elements in array
+// $elemMatch -> match element in array
+
+// $eq ->
+const equalToMovies =await Movie.find({score: {$eq:9.0}})
+console.log("movies with score equal to 9.0 are :")
+console.log(equalToMovies)
+
+//$in ->
+const inArrayMovies = await Movie.find({year: {$in:[2012,2045]}})     //this will find all movies with year 2012 or 2045
+console.log("movies with year 2012 or 2045 are :")
+console.log(inArrayMovies)
+
+//$or ->
+const orMovies = await Movie.find({$or: [{year:2012},{year:2045}]})     //this will find all movies with year 2012 or 2045
+console.log("movies with year 2012 or 2045 are :")
+console.log(orMovies)
+
+const orMovies2 = await Movie.find({$or: [{year: {$gte:2012}},{year:1945}]})     //this will find all movies with year greater than or equal to 2012 or year 1945
+console.log("movies with year greater than or equal to 2012 or year 1945 are :")
+console.log(orMovies2)
+
+
+//$exists -> 
+const existsMovies = await Movie.find({score: {$exists:true}})  //this will find all movies that have a score field , regardless of its value , even if the value is null or undefined
+
+//if $exists:false -> this will find all movies that do not have a score field
+
+
+
+//$regex ->
+const regexMovies = await Movie.find({title: {$regex: "z" , $options: "i"}})  //this will find all movies that have a title that contains the letter "z" , case insensitive , means it will match "z" or "Z" , $options: "i" is for case insensitive
+console.log("movies with title containing letter 'z' are :")
+console.log(regexMovies)
+
+
+// Movie.find({title:"batman"})      this will find all movies with title "batman" only not "batman begins" , and it is case sensitive , means it will match "batman" only not "Batman" or "BATMAN" .
+// Movie.find({title:{$regex:"batman" , $options:"i"}})  this will find all movies with title that contains "batman" , case insensitive , means it will match "batman" or "Batman" or "BATMAN" or "batman begins" or "The Batman" etc.
