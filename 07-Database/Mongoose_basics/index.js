@@ -365,3 +365,41 @@ console.log(updateManyMovies)
 //   year: 2022,
 //   genres: ["Action", "Drama", "Comedy"]
 // }
+
+
+//############################################  deleteOne()  #############################################################
+const deleteOneMovie= await Movie.deleteOne({year:2045})  //this will delete the first movie that matches the query {year:2045}
+console.log("movie with year 2045 deleted :")
+console.log(deleteOneMovie)
+
+//############################################  deleteMany()  #############################################################
+const deleteManyMovies = await Movie.deleteMany({year:{$gte:2053}})  //this will delete all movies that match the query {year:{$gte:2053}}
+console.log("movies with year greater than or equal to 2053 deleted :")
+console.log(deleteManyMovies) 
+
+//############################################  findOneAndDelete()  #############################################################
+const findOneAndDeleteMovie = await Movie.findOneAndDelete({year: 2045})  //this will find the first movie that matches the query {year: 2045} and delete it
+console.log("movie with year 2045 deleted :")
+console.log(findOneAndDeleteMovie)
+
+
+
+// CREATE
+// create()       → document
+// insertMany()   → [documents]
+// save()         → document
+
+// READ
+// find()         → [documents]
+// findOne()      → document / null
+// findById()     → document / null
+
+// UPDATE
+// updateOne()    → matchedCount + modifiedCount
+// updateMany()   → matchedCount + modifiedCount
+// findOneAndUpdate() → document
+
+// DELETE
+// deleteOne()    → deletedCount
+// deleteMany()   → deletedCount
+// findOneAndDelete() → deleted document
