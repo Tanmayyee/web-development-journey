@@ -89,10 +89,7 @@ productSchema.methods.addCategory = function (newCat) {
 // ============================================================
 
 productSchema.statics.fireSale = function () {
-  return this.updateMany(
-    {},
-    { $set: { onSale: true, price: 0 } }
-  );
+  return this.updateMany({},{ $set: { onSale: true, price: 0 } } );   //{} = all documents. ( dont filter any document , select all)
 };
 
 
@@ -199,7 +196,7 @@ const findProduct = async () => {
 // 14. CALL THE FUNCTION
 // ============================================================
 
-findProduct();
+await findProduct();
 
 
 // ============================================================
@@ -207,4 +204,10 @@ findProduct();
 // -> Product.fireSale() affects ALL products
 // ============================================================
 
-// Product.fireSale().then(res => console.log(res));
+console.log("static method result =")
+// await Product.fireSale()  
+// console.log(Product)     , this will not show any result because Product is a model not a document or model instance.
+//therefore,
+
+const result= await Product.fireSale()
+console.log(result)                               //if you want updated document use findOneAndUpdate instead of updateMany
