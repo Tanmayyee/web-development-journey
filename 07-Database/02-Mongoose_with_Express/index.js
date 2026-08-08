@@ -2,6 +2,7 @@ import express from "express";
 const app=express()
 import path from "path"
 import mongoose from "mongoose";
+import Product from "./models/product.js";
 
 const MONGO_URI = "mongodb://127.0.0.1:27017/mongooseWithExpress";
 
