@@ -201,3 +201,26 @@ await sony.save()
 
 console.log("sony document=")
 console.log(sony)
+
+
+
+//###########################################  {runValidators: true} before updating #############################################################
+
+
+// const updateLaptop= await Product.findOneAndUpdate({name:"Dell Inspiron 15"},{$set:{price:80000}},{ returnDocument: "after"})
+
+//*******************************************  important ***************************************************************
+// //this will set the price to 80000 even if the limit for price is 60000 , to prevent this and check validations
+// //before updating anything , we have to use {runValidators: true}
+
+// console.log("updated laptop price (without validation check )=")
+// console.log(updateLaptop)
+
+
+//correct method -----------------------------------------------------------------------------------
+
+// use {runValidators: true} to check validations before doing any changes.
+// const updateLaptopValid= await Product.findOneAndUpdate({name:"Dell Inspiron 15"},{$set:{price:90000}},
+//     {returnDocument:"after",runValidators:true})
+
+// console.log(updateLaptopValid)
