@@ -34,7 +34,17 @@ const productSchema= new mongoose.Schema({
     category:{
         type:[String] ,           //JavaScript/Mongoose is case-sensitive. String is the Mongoose/JavaScript type, while string is not valid here, because s is lowecased here.
         default: ["cycle"]
-    }                   
+    },
+    qty: {                       //This defines a nested object inside your product document called qty
+        online:{
+          type:Number,
+          default:0
+        },
+        inStore:{
+          type:Number,
+          default:0
+        }
+    }              
 })
 
 // ########################### Mongoose Schema Types & Options & Behavior & Validation Rules  ###########################
@@ -176,3 +186,18 @@ console.log("laptop document=")
 console.log(laptop)             //onSale will automatically be set to false because of the default value
 
 
+const sony = new Product({
+  name: "Nike Air Max",
+  price: 8999,
+  onSale: true,
+  category: ["Shoes", "Sports", "Running"],
+  qty: {
+    online: 25,
+    inStore: 10
+  }
+});
+
+await sony.save()
+
+console.log("sony document=")
+console.log(sony)
