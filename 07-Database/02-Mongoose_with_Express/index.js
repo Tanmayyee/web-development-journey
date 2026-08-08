@@ -23,8 +23,14 @@ await connectDB();
 app.set('views',path.join(import.meta.dirname,'/views'))
 app.set('view engine','ejs')
 
-app.get('/dog',(req,res)=>{
-    res.send('WOOFFF!!!')
+// app.get('/products',async(req,res)=>{               //for testing the connection with database and fetching all products
+//     const products = await Product.find({})
+//     console.log(products)
+//     res.send('All products will be here')
+// })
+
+app.get('/products',async(req,res)=>{               //for testing the connection with database and fetching all products
+    const products = await Product.find({})
 })
 
 
