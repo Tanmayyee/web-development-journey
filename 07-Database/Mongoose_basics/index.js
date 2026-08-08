@@ -284,3 +284,84 @@ console.log("movies with year greater than or equal to 2012 updated to have scor
 console.log(updateManyMovies) 
 
 
+// ============================================= COMMON UPDATE OPERATORS =================================================
+
+// $set is used to set/change the value of a field in an existing MongoDB document, if not used , the entire document will be replaced with the new document provided in the update operation.
+// MongoDB's update methods expect update operators like->
+// $set, $inc, $push, etc....
+// to tell MongoDB what kind of update you want to perform.
+
+// $set
+// -> Set/change a field's value
+// { $set: { score: 10 } }
+
+// $unset
+// -> Remove a field
+// { $unset: { score: "" } }
+
+// $inc
+// -> Increase/decrease a number
+// { $inc: { views: 1 } }
+// { $inc: { views: -1 } }
+
+// $mul
+// -> Multiply a number
+// { $mul: { price: 2 } }
+
+// $min
+// -> Update only if new value is smaller
+// { $min: { score: 5 } }
+
+// $max
+// -> Update only if new value is larger
+// { $max: { score: 10 } }
+
+// $rename
+// -> Rename a field
+// { $rename: { Score: "score" } }
+
+// $currentDate
+// -> Set field to current date/time
+// { $currentDate: { updatedAt: true } }
+
+
+// // ==================== ARRAY UPDATE OPERATORS ====================
+
+// $push
+// -> Add an item to an array
+// { $push: { genres: "Action" } }
+
+// $addToSet
+// -> Add item only if it doesn't already exist
+// { $addToSet: { genres: "Action" } }
+
+// $pop
+// -> Remove first or last item from an array       //important: $pop only accepts 1 or -1, not 2.
+// { $pop: { genres: 1 } }    // Remove last
+// { $pop: { genres: -1 } }   // Remove first
+
+// $pull
+// -> Remove matching items from an array
+// { $pull: { genres: "Action" } }
+
+// $pullAll
+// -> Remove multiple specified items from an array
+// { $pullAll: { genres: ["Action", "Drama"] } }
+
+//example->
+// Before:
+// {
+//   title: "Batman",
+//   year: 2022,
+//   genres: ["Action", "Drama"]
+// }
+//
+// Update:
+// { $push: { genres: "Comedy" } }
+//
+// After:
+// {
+//   title: "Batman",
+//   year: 2022,
+//   genres: ["Action", "Drama", "Comedy"]
+// }
