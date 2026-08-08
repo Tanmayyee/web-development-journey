@@ -31,6 +31,7 @@ app.set('view engine','ejs')
 
 app.get('/products',async(req,res)=>{               //for testing the connection with database and fetching all products
     const products = await Product.find({})
+    res.render('products/index',{products})
 })
 
 
