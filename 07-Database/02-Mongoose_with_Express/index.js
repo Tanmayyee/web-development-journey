@@ -3,6 +3,7 @@ const app=express()
 import path from "path"
 import mongoose from "mongoose";
 import Product from "./models/product.js";
+import methodOverride from "method-override"  //Method-override lets HTML forms use HTTP methods like PUT, PATCH, and DELETE that they don't natively support.,without this we can only use post and get.
 
 const MONGO_URI = "mongodb://127.0.0.1:27017/mongooseWithExpress";
 
@@ -23,6 +24,7 @@ await connectDB();
 app.set('views',path.join(import.meta.dirname,'/views'))
 app.set('view engine','ejs')
 app.use(express.urlencoded({ extended: true }))              //to make req.body works
+app.use(methodOverride("_method"));                     //method override - to use put/patch/delete 
 
 // app.get('/products',async(req,res)=>{               //for testing the connection with database and fetching all products
 //     const products = await Product.find({})
@@ -53,6 +55,11 @@ app.get('/products/:id', async(req,res)=>{
     res.render('products/show',{products})
 })
 
+app.get('/products/:id/edit', async(req,res)=>{
+  const {id} =req.params
+  const products = await Product.findById(id)
+  res.render('products/edit',{products})
+})
 
 app.listen(2300,()=>{
     console.log("Listening on Port 2300!")
