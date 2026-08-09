@@ -61,6 +61,12 @@ app.get('/products/:id/edit', async(req,res)=>{
   res.render('products/edit',{products})
 })
 
+app.put('/products/:id',async(req,res)=>{
+  const {id} =req.params
+  const products= await Product.findByIdAndUpdate(id,req.body,{runValidators:true , returnDocument:"after"})
+  res.redirect(`/products/${products._id}`)
+})
+
 app.listen(2300,()=>{
     console.log("Listening on Port 2300!")
 })

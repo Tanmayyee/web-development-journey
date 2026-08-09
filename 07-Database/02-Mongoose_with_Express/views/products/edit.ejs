@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit-<%= product.name %></title>
+    <title>Edit-<%= products.name %></title>
 </head>
 <body>
-    <h1>Edit <%= product.name %> info.</h1>
-    <form action="/products/<%= product._id %>?_method=PUT" method="post">     <!-- use PUT method to update a resource -->
+    <h1>Edit <%= products.name %> info.</h1>
+    <form action="/products/<%= products._id %>?_method=PUT" method="post">     <!-- use PUT method to update a resource -->
          <label for="productName">Product:</label>
-        <input type="text" name="name" id="name" placeholder="enter your product" value=<%= product.name %>>
+        <input type="text" name="name" id="name" placeholder="enter your product" value="<%= products.name %>">
         <label for="price">Price:</label>
-        <input type="number" name="price" id="price" placeholder="enter your price" value=<%= product.price %>>
+        <input type="number" name="price" id="price" placeholder="enter your price" value="<%= products.price %>">
         <label for="category">Category</label>
         <select name="category" id="category">
             <option value="default" selected>select category</option>
@@ -22,6 +22,6 @@
         <button>Submit</button>
     </form>
 
-    <a href="/products/<%= product._id %>">cancel</a>
+    <a href="/products/<%= products._id %>">cancel</a>
 </body>
 </html>
