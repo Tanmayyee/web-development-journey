@@ -22,6 +22,7 @@ await connectDB();
 
 app.set('views',path.join(import.meta.dirname,'/views'))
 app.set('view engine','ejs')
+app.use(express.urlencoded({ extended: true }))              //to make req.body works
 
 // app.get('/products',async(req,res)=>{               //for testing the connection with database and fetching all products
 //     const products = await Product.find({})
@@ -34,11 +35,24 @@ app.get('/products',async(req,res)=>{               //for testing the connection
     res.render('products/index',{products})
 })
 
+app.get('/products/new',(req,res)=>{
+  res.render('products/new')
+})
+
+app.post('/products',async(req,res)=>{
+  // console.log(req.body)
+  const newProduct= new Product(req.body)            //form gives req.body //app.use(express.urlencoded({ extended: true })) add this 
+  await newProduct.save()
+  res.redirect(`/products/${newProduct._id}`)
+})
+
+
 app.get('/products/:id', async(req,res)=>{
     const {id}=req.params
     const products = await Product.findById(id)
     res.render('products/show',{products})
 })
+
 
 app.listen(2300,()=>{
     console.log("Listening on Port 2300!")
