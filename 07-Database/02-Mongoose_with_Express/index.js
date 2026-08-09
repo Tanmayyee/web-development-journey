@@ -32,13 +32,15 @@ app.use(methodOverride("_method"));                     //method override - to u
 //     res.send('All products will be here')
 // })
 
+const categories=['fruit','vegetable','dairy','mushroom']
+
 app.get('/products',async(req,res)=>{               //for testing the connection with database and fetching all products
     const products = await Product.find({})
     res.render('products/index',{products})
 })
 
 app.get('/products/new',(req,res)=>{
-  res.render('products/new')
+  res.render('products/new',{categories})
 })
 
 app.post('/products',async(req,res)=>{
@@ -52,19 +54,25 @@ app.post('/products',async(req,res)=>{
 app.get('/products/:id', async(req,res)=>{
     const {id}=req.params
     const products = await Product.findById(id)
-    res.render('products/show',{products})
+    res.render('products/show',{products,categories})
 })
 
 app.get('/products/:id/edit', async(req,res)=>{
   const {id} =req.params
   const products = await Product.findById(id)
-  res.render('products/edit',{products})
+  res.render('products/edit',{products,categories})
 })
 
 app.put('/products/:id',async(req,res)=>{
   const {id} =req.params
   const products= await Product.findByIdAndUpdate(id,req.body,{runValidators:true , returnDocument:"after"})
   res.redirect(`/products/${products._id}`)
+})
+
+app.delete('/products/:id',async(req,res)=>{
+  const {id} =req.params
+  const deletedProduct= await Product.findByIdAndDelete(id)
+  res.redirect('/products')
 })
 
 app.listen(2300,()=>{
