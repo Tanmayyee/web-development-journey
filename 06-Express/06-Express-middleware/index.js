@@ -62,6 +62,16 @@ app.use((req, res) => {
     res.status(404).send('NOT FOUND!');
 });
 
+//error-handling middleware->
+app.use((err,req,res,next)=>{
+    console.log("******************************************************")
+    console.log("***********************ERROR**************************")
+    console.log("******************************************************")
+    console.log(err)
+    next(err)//Pass the error to the next error-handling middleware, 
+    // if there is no custom error-handling middleware after it, Express uses its built-in default error handler.
+})
+
 app.listen(3000, () => {
     console.log('App is running on localhost:3000');
 });
