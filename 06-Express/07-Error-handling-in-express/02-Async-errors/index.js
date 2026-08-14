@@ -31,16 +31,22 @@ app.use(methodOverride("_method"));
 
 const categories = ['fruit', 'vegetable', 'dairy', 'mushroom'];
 
-app.get('/products', async (req, res) => {               
-    const { category } = req.query;                   
-                                                  
-    if (category) {
-        const products = await Product.find({ category });
-        res.render('products/index', { products, category });
-    } else {
-        const products = await Product.find({});
-        res.render('products/index', { products, category: "All" });
-    }                                              
+
+//use try and catch error handling only for async functions
+app.get('/products', async (req, res, next) => {               
+    try {
+        const { category } = req.query;                   
+
+        if (category) {
+            const products = await Product.find({ category });
+            res.render('products/index', { products, category });
+        } else {
+            const products = await Product.find({});
+            res.render('products/index', { products, category: "All" });
+        }
+    } catch (e) {
+        next(e);
+    }                                             
 });
 
 
@@ -48,55 +54,84 @@ app.get('/products/new', (req, res) => {
   res.render('products/new', { categories });
 });
 
-app.post('/products', async (req, res) => {
-  const newProduct = new Product(req.body);            
-  await newProduct.save();
-  res.redirect(`/products/${newProduct._id}`);
+app.post('/products', async (req, res, next) => {
+  try {
+    const newProduct = new Product(req.body);            
+    await newProduct.save();
+    res.redirect(`/products/${newProduct._id}`);
+  } catch (e) {
+    next(e);
+  }
 });
 
 
-//handling async erros -------------------------------------------------------------------------
+//handling async erros using return next approach -------------------------------------------------------------------------
 
-// Don't forget to add `next` as a parameter so we can pass async errors
-// to the error-handling middleware using `next(error)`.
+// // Don't forget to add `next` as a parameter so we can pass async errors
+// // to the error-handling middleware using `next(error)`.
+// app.get('/products/:id', async (req, res,next) => {
+//     const { id } = req.params;
+//     const products = await Product.findById(id);
+
+//     if(!products){
+//       // In async route handlers, use next(error) to pass the error
+//         // to the error-handling middleware instead of simply throwing it.
+//       return next(new AppError('Product not found',404))
+//     }
+//     res.render('products/show', { products, categories });
+// });
+
+//using try and catch (better approach) -----------------------------------------------
 app.get('/products/:id', async (req, res,next) => {
-    const { id } = req.params;
-    const products = await Product.findById(id);
-
-    if(!products){
-      // In async route handlers, use next(error) to pass the error
-        // to the error-handling middleware instead of simply throwing it.
-      return next(new AppError('Product not found',404))
+    try{
+       const { id } = req.params;
+       const products = await Product.findById(id);
+       if(!products){
+       throw new AppError('Product not found',404)
+       }
+       res.render('products/show', { products, categories });
+    }catch(e){
+      next(e)
     }
-    res.render('products/show', { products, categories });
 });
-
 
 app.get('/products/:id/edit', async (req, res, next) => {
-  const { id } = req.params;
-  
-  const products = await Product.findById(id);
-  if(!products){
-      return next(new AppError('Product not found',404))
-    }
-  res.render('products/edit', { products, categories });
+  try {
+    const { id } = req.params;
+    
+    const products = await Product.findById(id);
+    if(!products){
+        return next(new AppError('Product not found',404))
+      }
+    res.render('products/edit', { products, categories });
+  } catch (e) {
+    next(e);
+  }
 });
 
 
-app.put('/products/:id', async (req, res) => {
-  const { id } = req.params;
-  
-  const products = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, returnDocument: "after" });
+app.put('/products/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    
+    const products = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, returnDocument: "after" });
 
-  res.redirect(`/products/${products._id}`);
+    res.redirect(`/products/${products._id}`);
+  } catch (e) {
+    next(e);
+  }
 });
 
 
-app.delete('/products/:id', async (req, res) => {
-  const { id } = req.params;
-  await Product.findByIdAndDelete(id);
-  
-  res.redirect('/products');
+app.delete('/products/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await Product.findByIdAndDelete(id);
+    
+    res.redirect('/products');
+  } catch (e) {
+    next(e);
+  }
 });
 
 app.use((err,req,res,next)=>{
