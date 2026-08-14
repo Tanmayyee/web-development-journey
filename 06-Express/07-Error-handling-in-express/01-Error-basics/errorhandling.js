@@ -57,17 +57,6 @@ app.use((err,req,res,next)=>{
     res.status(status).send(message)
 })
 
-// throw new AppError("not allowed", 403)
-//                 ↓
-//         Express catches error
-//                 ↓
-//      skips normal middleware
-//                 ↓
-// app.use((err, req, res, next) => {
-//                 ↓
-//         err = AppError object
-// })
-
 app.listen(4000,()=>{
     console.log("port 4000 !!!")
 })
