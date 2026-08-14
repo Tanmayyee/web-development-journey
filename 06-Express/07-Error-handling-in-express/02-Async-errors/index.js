@@ -4,6 +4,7 @@ import path from "path";
 import mongoose from "mongoose";
 import Product from "./models/product.js";
 import methodOverride from "method-override"; 
+import AppError from "./AppError.js";
 
 // CONNECTION: Define where our MongoDB database lives.
 const MONGO_URI = "mongodb://127.0.0.1:27017/mongooseWithExpress";
