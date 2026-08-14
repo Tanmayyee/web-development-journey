@@ -85,7 +85,15 @@ app.delete('/products/:id', async (req, res) => {
 
 // Centralized Error Handling Middleware
 app.use((err, req, res, next) => {
-  const { message = 'default error message', status = 500 } = err;
+  // Intercept Mongoose CastErrors (Invalid ObjectIds)
+  if (err.name === 'CastError') {
+    return res.status(400).send(`Invalid Product ID: ${err.value}`);
+    // Optional: You could also do `throw new AppError('Invalid Product ID', 400)` 
+    // or render a specific error template here instead of sending plain text.
+  }
+
+  // Handle all other errors
+  const { message = 'Default error message', status = 500 } = err;
   res.status(status).send(message);
 });
 
