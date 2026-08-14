@@ -62,7 +62,7 @@ app.use((req, res) => {
     res.status(404).send('NOT FOUND!');
 });
 
-//error-handling middleware->
+//error-handling middleware-> //better way shown in errorhandling.js + AppError.js
 app.use((err,req,res,next)=>{
     console.log("******************************************************")
     console.log("***********************ERROR**************************")
