@@ -2,11 +2,13 @@ import express from "express";
 const app = express();
 import path from "path";
 import mongoose from "mongoose";
-import Product from "./models/product.js";
 import methodOverride from "method-override"; 
+import Product from "./models/product.js";
+import Farm from "./models/farm.js";
+
 
 // CONNECTION: Define where our MongoDB database lives.
-const MONGO_URI = "mongodb://127.0.0.1:27017/mongooseWithExpress";
+const MONGO_URI = "mongodb://127.0.0.1:27017/farmStack";
 
 const connectDB = async () => {
   try {
@@ -45,8 +47,16 @@ const categories = ['fruit', 'vegetable', 'dairy', 'mushroom'];
 // ==========================================
 // ROUTES (CRUD LOGIC)
 // ==========================================
+
+//add new farm form
 app.get('/farm/new',async(req,res)=>{
   res.render('farm/new')
+})
+
+app.post('/farm',async(req,res)=>{
+  const newFarm= new Farm(req.body);
+  await Farm.save()
+
 })
 
 // READ ALL (or filter by category)

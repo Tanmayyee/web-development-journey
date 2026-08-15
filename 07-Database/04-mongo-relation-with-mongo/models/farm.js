@@ -2,8 +2,18 @@ import mongoose, { mongo } from "mongoose";
 import Product from "./product";
 
 const farmSchema= new mongoose.Schema({
-    name:String,
-    city:String,
+    name:{
+        type:String,
+        required:[true,'Name required']
+    },
+    city:{
+        type:String,
+        required:[true,'City required']
+    },
+    email:{
+        type:String,
+        required:[true,'Email required']
+    },
     products:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:Product
