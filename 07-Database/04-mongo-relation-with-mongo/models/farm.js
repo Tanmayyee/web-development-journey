@@ -1,5 +1,4 @@
 import mongoose, { mongo } from "mongoose";
-import Product from "./product";
 
 const farmSchema= new mongoose.Schema({
     name:{
@@ -16,7 +15,7 @@ const farmSchema= new mongoose.Schema({
     },
     products:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:Product
+        ref:'Product'
     }]
 })
 

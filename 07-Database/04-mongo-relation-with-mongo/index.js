@@ -59,9 +59,15 @@ app.get('/farm/new',async(req,res)=>{
   res.render('farm/new')
 })
 
+app.get('/farm/:id',async(req,res)=>{
+  const {id}=req.params;
+  const farm= await Farm.findById(id)
+  res.render('farm/show',{farm})
+})
+
 app.post('/farm',async(req,res)=>{
   const newFarm= new Farm(req.body);
-  await Farm.save()
+  await newFarm.save()
   res.redirect('/farm')
 })
 

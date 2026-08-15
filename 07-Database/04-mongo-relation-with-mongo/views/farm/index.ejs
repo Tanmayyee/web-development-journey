@@ -13,16 +13,16 @@
         <ul class="list-group mb-4 w-50 shadow-sm">
             <% for(let farm of farms) { %>
                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="/products/<%= farm._id %>" class="text-decoration-none text-dark fw-bold">
+                    <a href="/farm/<%= farm._id %>" class="text-decoration-none text-dark fw-bold">
                         <%= farm.name %>
                     </a>
-                    <span class="badge bg-success rounded-pill">$<%= farm.city %></span>
+                    <span class="badge bg-success rounded-pill"><%= farm.city %></span>
                  </li>
             <% } %>
         </ul>
 
         <a href="/farm/new" class="btn btn-primary">Add New Farms</a>
-        <a href="/prodcuts/new" class="btn btn-primary">Add new prodcuts</a>
+        <a href="/products/new" class="btn btn-primary">Add new prodcuts</a>
         
     </div>
 </body>

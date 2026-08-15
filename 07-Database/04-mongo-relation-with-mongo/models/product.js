@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
     },
     farm:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:Farm
+        ref:'Farm'
     }
 })
 
