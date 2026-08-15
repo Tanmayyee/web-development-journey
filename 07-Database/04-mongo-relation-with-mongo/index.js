@@ -48,6 +48,12 @@ const categories = ['fruit', 'vegetable', 'dairy', 'mushroom'];
 // ROUTES (CRUD LOGIC)
 // ==========================================
 
+//farm index page
+app.get('/farm',async(req,res)=>{
+  const farms= await Farm.find({})
+  res.render('farm/index',{farms})
+})
+
 //add new farm form
 app.get('/farm/new',async(req,res)=>{
   res.render('farm/new')
@@ -56,7 +62,7 @@ app.get('/farm/new',async(req,res)=>{
 app.post('/farm',async(req,res)=>{
   const newFarm= new Farm(req.body);
   await Farm.save()
-
+  res.redirect('/farm')
 })
 
 // READ ALL (or filter by category)
