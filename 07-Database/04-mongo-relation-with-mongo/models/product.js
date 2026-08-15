@@ -22,6 +22,8 @@ const productSchema = new mongoose.Schema({
     }
 })
 
+// Bidirectional One-to-Many relationship, between farm and products
+
 const Product = mongoose.model('Product', productSchema);
 
 export default Product;

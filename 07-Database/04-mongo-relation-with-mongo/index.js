@@ -45,6 +45,9 @@ const categories = ['fruit', 'vegetable', 'dairy', 'mushroom'];
 // ==========================================
 // ROUTES (CRUD LOGIC)
 // ==========================================
+app.get('/farm/new',async(req,res)=>{
+  res.render('farm/new')
+})
 
 // READ ALL (or filter by category)
 app.get('/products', async (req, res) => {               
