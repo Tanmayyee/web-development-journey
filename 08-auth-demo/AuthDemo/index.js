@@ -26,6 +26,14 @@ app.set('views', path.join(import.meta.dirname,"/views"));
 app.use(express.urlencoded({extended:true}));
 app.use(session({secret:"notagoodsecret"}))
 
+const requireLogin = (req,res,next)=>{
+    if(!req.session.user_id){
+        return res.redirect('/login')
+    }else{
+        next();
+    }
+}
+
 app.get('/',(req,res)=>{
     res.send("home page!")
 })
@@ -65,17 +73,13 @@ app.post('/login',async(req,res)=>{
 })
 
 app.post('/logout',(req,res)=>{
-    // req.session.user_id=null;
-    req.session.destroy()
+    // req.session.user_id = null; // Remove the user ID from the session
+    req.session.destroy();       // Destroy the entire session
     res.redirect('/login')
 })
 
-app.get('/secret',(req,res)=>{
-    if(!req.session.user_id){
-        res.redirect('/login')
-    }else{
+app.get('/secret',requireLogin,(req,res)=>{
         res.render('logout')
-    }
 })
 
 app.listen(3000,()=>{
