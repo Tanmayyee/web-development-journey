@@ -62,10 +62,9 @@ app.get('/login',(req,res)=>{
 
 app.post('/login',async(req,res)=>{
     const{username , pw }=req.body;
-    const user = await User.findOne({username});
-    const validPassword= await bcrypt.compare(pw, user.password)
-    if(validPassword){
-        req.session.user_id=user._id;
+    const foundUser= await User.findAndValidate(username,pw)   //check userSchema
+    if(foundUser){
+        req.session.user_id=foundUser._id;
         res.send('yayy welcome !!!')
     }else{
         res.send('try again')
