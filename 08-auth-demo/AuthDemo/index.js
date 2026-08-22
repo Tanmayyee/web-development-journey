@@ -4,6 +4,7 @@ import path from 'path'
 import bcrypt from 'bcrypt'
 import User from './models/user.js';
 import mongoose from 'mongoose';
+import session from 'express-session'
 
 const MONGO_URI = "mongodb://127.0.0.1:27017/LoginDemo";
 
@@ -23,6 +24,7 @@ app.set('view engine','ejs');
 app.set('views', path.join(import.meta.dirname,"/views"));
 
 app.use(express.urlencoded({extended:true}));
+app.use(session({secret:"notagoodsecret"}))
 
 app.get('/',(req,res)=>{
     res.send("home page!")
@@ -42,6 +44,7 @@ app.post('/register',async(req,res)=>{
         password:hash
     })
     await user.save();
+    req.session.user_id=user._id;
     res.redirect('/')
 })
 
@@ -54,6 +57,7 @@ app.post('/login',async(req,res)=>{
     const user = await User.findOne({username});
     const validPassword= await bcrypt.compare(pw, user.password)
     if(validPassword){
+        req.session.user_id=user._id;
         res.send('yayy welcome !!!')
     }else{
         res.send('try again')
@@ -61,7 +65,11 @@ app.post('/login',async(req,res)=>{
 })
 
 app.get('/secret',(req,res)=>{
-    res.send("This is secret!!!")
+    if(!req.session.user_id){
+        res.redirect('/login')
+    }else{
+        res.send("This is secret!!!")
+    }
 })
 
 app.listen(3000,()=>{
