@@ -45,11 +45,11 @@ app.get('/register',(req,res)=>{
 app.post('/register',async(req,res)=>{
     // res.send(req.body)
     const {username,pw}=req.body
-    const hash= await bcrypt.hash(pw,12)
+    
     // res.send(hash)
     const user= new User({
         username,
-        password:hash
+        password:pw
     })
     await user.save();
     req.session.user_id=user._id;
