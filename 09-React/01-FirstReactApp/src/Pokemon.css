@@ -1,0 +1,10 @@
+.poke{
+   border: 1px solid black;
+   width: 200px;
+   
+}
+
+.poke img{
+    width: 150px;
+    margin: 5px;
+}
