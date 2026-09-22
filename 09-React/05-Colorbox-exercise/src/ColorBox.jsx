@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import './ColorBox.css'
 
 export default function ColorBox({colors}){
