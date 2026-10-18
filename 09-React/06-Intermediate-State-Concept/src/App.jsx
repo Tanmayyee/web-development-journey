@@ -1,6 +1,7 @@
 import './App.css'
 import CurrentCount from './CurrentState'
 import Dumbo from './Dumbo'
+import ScoreKeeper from './ScoreKeeper'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <>
     <CurrentCount />
     <Dumbo />
+    <ScoreKeeper />
     </>
   )
 }
