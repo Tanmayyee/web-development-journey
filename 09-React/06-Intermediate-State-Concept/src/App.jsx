@@ -2,6 +2,7 @@ import './App.css'
 import CurrentCount from './CurrentState'
 import Dumbo from './Dumbo'
 import ScoreKeeper from './ScoreKeeper'
+import EmojiClicker from './EmojiClicker'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <CurrentCount />
     <Dumbo />
     <ScoreKeeper />
+    <EmojiClicker/>
     </>
   )
 }
