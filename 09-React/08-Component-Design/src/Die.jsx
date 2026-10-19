@@ -1,9 +1,9 @@
 import "./Die.css"
 
-export default function Die({num}){
+export default function Die({val,color="darkviolet"}){
     return(
-        <div className="die">
-            {num}
+        <div className="die" style={{backgroundColor:color}}>
+            {val}
         </div>
     )
 }
