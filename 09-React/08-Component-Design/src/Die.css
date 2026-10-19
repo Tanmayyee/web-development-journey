@@ -1,0 +1,13 @@
+.die{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px outset #000000;
+    background-color: rgb(190, 17, 233);
+    color: white;
+}
