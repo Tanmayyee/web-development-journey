@@ -14,6 +14,14 @@ export default function EmojiClicker() {
             return preEmoji.filter((e)=>e.id!==id)
         })
     }
+    
+    const makeThemSad =()=>{
+        setEmoji((preEmoji)=>{
+            return preEmoji.map((e)=>{
+                return { ...e,emoji:"😞"}
+            })
+        })
+    }
 
     return (
         <>
@@ -25,6 +33,7 @@ export default function EmojiClicker() {
             ))}
             <div>
                 <button onClick={addEmoji}>Add more kiss</button>
+                <button onClick={makeThemSad}>Make them all sad</button>
             </div>
         </>
     );
