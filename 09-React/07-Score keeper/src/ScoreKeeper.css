@@ -1,0 +1,103 @@
+
+/* Main container */
+.score-keeper {
+    max-width: 450px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Heading */
+.score-keeper h1 {
+    text-align: center;
+    color: #22223b;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+/* Player list */
+.score-keeper ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Each player row */
+.score-keeper li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 15px;
+    background: #f5f6fa;
+    border-radius: 10px;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* +1 button */
+.score-keeper li button {
+    border: none;
+    background: #4361ee;
+    color: white;
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.score-keeper li button:hover:not(:disabled) {
+    background: #3046c5;
+    transform: translateY(-2px);
+}
+
+/* Disabled +1 buttons */
+.score-keeper li button:disabled {
+    background: #bfc4d1;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Reset button */
+.score-keeper > button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #ef476f;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.score-keeper > button:hover {
+    background: #d6335b;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .score-keeper {
+        margin: 25px 15px;
+        padding: 20px;
+    }
+
+    .score-keeper h1 {
+        font-size: 1.6rem;
+    }
+
+    .score-keeper li {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
