@@ -10,9 +10,9 @@ function App() {
 
   return (
     <>
-      <LuckyN numDice={2} winCheck={(dice)=>sum(dice)===7}/>
-      <LuckyN numDice={2} winCheck={lessThan4}/>
-      <LuckyN numDice={3} winCheck={(dice)=>dice.every(d=>d===dice[0])}/>
+      <LuckyN numDice={2} title='Equal to 7' winCheck={(dice)=>sum(dice)===7}/>
+      <LuckyN numDice={2} title='Less than 4' winCheck={lessThan4}/>
+      <LuckyN numDice={3} title='All Dice Equal' winCheck={(dice)=>dice.every(d=>d===dice[0])}/>
     </>
   )
 }
