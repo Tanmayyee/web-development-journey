@@ -15,6 +15,8 @@ function App() {
       <LuckyN numDice={2} title='Less than 4' winCheck={lessThan4}/>
       <LuckyN numDice={3} title='All Dice Equal' winCheck={(dice)=>dice.every(d=>d===dice[0])}/> */}
       <Box/>  
+      <Box />
+      <Box/>
     </>
   )
 }
