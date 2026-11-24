@@ -11,9 +11,17 @@ export default function BetterForm(){
         const changeField=evt.target.name;
         const newValue=evt.target.value;
         setFormData((currData)=>{
-            currData[changeField]=newValue;
-            return {...currData};
+            return{
+                ...currData,
+                [changeField]:newValue,
+            }
         })
+        // [changeField]:newValue      ===>   password:newValue or firstName:newValue ......>
+
+        // setFormData((currData)=>{
+        //     currData[changeField]=newValue;
+        //     return {...currData};
+        // })
 
     }
     const handleSubmit=()=>{
