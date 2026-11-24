@@ -17,7 +17,7 @@ export default function BetterForm(){
             }
         })
         // [changeField]:newValue      ===>   password:newValue or firstName:newValue ......>
-
+        // [changeField] is a computed property name (dynamic key)
         // setFormData((currData)=>{
         //     currData[changeField]=newValue;
         //     return {...currData};
