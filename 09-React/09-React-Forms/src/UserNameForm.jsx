@@ -7,10 +7,12 @@ export default function UserNameForm(){
     }
     return(
         <div>
+            <label htmlFor="username">Enter Username</label>
             <input type="text" 
-            placeholder="name" 
+            placeholder="username" 
             value={username}
-            onChange={update} />
+            onChange={update}
+            id='username' />
             <button>Submit</button>
         </div>
     )
